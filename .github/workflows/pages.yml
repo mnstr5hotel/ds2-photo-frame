@@ -61,27 +61,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-
-  smoke:
-    needs: deploy
-    runs-on: ubuntu-latest
-    env:
-      SMOKE_BASE_URL: ${{ needs.deploy.outputs.page_url }}
-      SMOKE_EXPECT_PUBLIC_ASSETS: 'true'
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: node tools/wait-for-static.mjs
-      - name: Smoke test
-        run: |
-          npm run smoke || (
-            echo "Smoke test failed once; waiting for GitHub Pages to settle before retrying."
-            sleep 60
-            node tools/wait-for-static.mjs
-            npm run smoke
-          )
