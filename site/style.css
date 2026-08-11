@@ -106,6 +106,15 @@ body{
   -webkit-text-stroke:0;
   text-shadow:none;
 }
+.title-cn{
+  max-width:min(620px,55vw);
+  overflow:hidden;
+  color:rgba(126,208,255,0.72);
+  font:500 11px/1.25 "Microsoft YaHei UI","Noto Sans SC","Segoe UI",sans-serif;
+  letter-spacing:0.08em;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
 .topbar-actions{
   display:flex;
   align-items:flex-end;
@@ -983,6 +992,7 @@ body{
   }
   .topbar-title{width:100%}
   .title-stack [data-i18n="title"]{max-width:calc(100vw - 70px);font-size:20px}
+  .title-cn{max-width:calc(100vw - 70px);font-size:10px}
   .topbar-actions{width:100%;justify-content:flex-end}
   .btn{min-width:68px;min-height:29px;padding:6px 8px;font-size:10px}
   .main{flex-direction:column;overflow:auto}
@@ -1042,6 +1052,7 @@ body{
 @media (max-width:460px){
   .logo-diamond,.title-kicker{display:none}
   .title-stack [data-i18n="title"]{max-width:100%;font-size:18px}
+  .title-cn{max-width:100%;font-size:9px;letter-spacing:0.04em}
   .selection-data{width:91px}
   .icon-btn{width:27px}
   .sticker-color-control{width:100px}
