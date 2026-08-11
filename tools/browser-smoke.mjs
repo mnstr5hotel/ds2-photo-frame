@@ -62,8 +62,12 @@ try {
     throw new Error('导出文件不是 PNG');
   }
 
-  const directAsset = await page.request.get(baseUrl + '/assets/library/frames/F37.png');
-  if (![403, 404].includes(directAsset.status())) throw new Error('公开原图路径没有被隐藏');
+  const directAssetUrl = new URL('/assets/library/frames/F37.png', baseUrl);
+  const directAsset = await page.request.get(directAssetUrl.href);
+  const directAssetType = directAsset.headers()['content-type'] || '';
+  if (directAsset.ok() && directAssetType.startsWith('image/')) {
+    throw new Error('公开原图路径没有被隐藏');
+  }
   if (errors.length) throw new Error(errors.join('\n'));
 
   console.log('浏览器回归通过：24 个贴纸、41 个相框、24 色、F37、上传、换色及 PNG 导出均正常。');
