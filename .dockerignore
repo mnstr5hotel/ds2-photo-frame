@@ -1,8 +1,0 @@
-.git
-.next
-.next-node
-.openai
-.wrangler
-dist
-node_modules
-npm-debug.log*

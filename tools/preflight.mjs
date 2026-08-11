@@ -30,6 +30,8 @@ check(new Set(manifest.map(function(item) { return item.id; })).size === manifes
 check(colors.length === 24, '调色板必须包含 24 种颜色');
 check(colors[0] && colors[0].name === 'SnowWhite', '默认颜色必须是 SnowWhite');
 check(!/\.innerHTML\s*=/.test(appSource), '不要使用 innerHTML 字符串写入');
+check(appSource.includes("const ASSET_CATALOG_URL = 'assets/catalog.json';"), '静态素材目录必须使用相对路径');
+check(!appSource.includes('/api/catalog') && !appSource.includes('/media/'), '静态网页不能依赖服务端素材路由');
 
 const htmlIds = new Set(Array.from(indexHtml.matchAll(/\sid="([^"]+)"/g), function(match) { return match[1]; }));
 const requiredIds = Array.from(appSource.matchAll(/getElementById\('([^']+)'\)/g), function(match) { return match[1]; });
