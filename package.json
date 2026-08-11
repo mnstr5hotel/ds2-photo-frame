@@ -7,7 +7,7 @@
     "dev": "npm run build && node tools/serve-static.mjs",
     "build": "node tools/build-static.mjs",
     "start": "node tools/serve-static.mjs",
-    "check": "node --check site/app.js && node --check site/lang.js && node tools/preflight.mjs",
+    "check": "node --check site/app.js && node --check site/lang.js && node --check site/sw.js && node tools/preflight.mjs",
     "smoke": "node tools/browser-smoke.mjs"
   },
   "devDependencies": {

@@ -50,6 +50,7 @@ const HISTORY_LIMIT = 30;
 const SELECTION_HANDLE_SIZE = 34;
 const SELECTION_HANDLE_HIT_SIZE = 64;
 const TINTED_STICKER_CACHE_LIMIT = 16;
+const EAGER_THUMBNAIL_COUNT = 10;
 const CATEGORIES = ['stickers', 'frames'];
 let ambientMarks = [];
 
@@ -83,6 +84,7 @@ const tintedStickerImages = new Map();
 const photoAssets = new Map();
 let stickerIdCounter = 0;
 let photoAssetCounter = 0;
+let serviceWorkerRegistrationStarted = false;
 
 // ===== History =====
 const history = {
@@ -425,6 +427,24 @@ function loadAsset(def) {
   return assetLoadPromises[def.id];
 }
 
+function warmAsset(def) {
+  if (!def || assetImages[def.id] || assetLoadPromises[def.id]) return;
+  loadAsset(def).catch(function(error) {
+    console.warn('Asset warm-up failed:', def.id, error);
+  });
+}
+
+function registerAssetCacheWorker() {
+  if (serviceWorkerRegistrationStarted || !('serviceWorker' in navigator)) return;
+  if (!window.isSecureContext && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') return;
+  serviceWorkerRegistrationStarted = true;
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js').catch(function(error) {
+      console.warn('Service worker registration failed:', error);
+    });
+  });
+}
+
 // ===== Fixed logical canvas and responsive preview =====
 function syncPreviewResolution() {
   const rect = canvas.getBoundingClientRect();
@@ -703,7 +723,7 @@ function buildAssetPanel() {
 
   ASSET_DEFS.filter(function(def) {
     return def.category === state.activeCategory;
-  }).forEach(function(def) {
+  }).forEach(function(def, index) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'sticker-thumb';
@@ -717,8 +737,9 @@ function buildAssetPanel() {
 
     const image = document.createElement('img');
     image.alt = displayName;
-    image.loading = 'lazy';
+    image.loading = index < EAGER_THUMBNAIL_COUNT ? 'eager' : 'lazy';
     image.decoding = 'async';
+    image.fetchPriority = index < EAGER_THUMBNAIL_COUNT ? 'high' : 'low';
     image.src = def.thumbnail;
     image.onerror = function() {
       image.onerror = null;
@@ -738,6 +759,8 @@ function buildAssetPanel() {
       if (def.category === 'frames') await setFrame(def.id);
       else await addSticker(def.id);
     });
+    button.addEventListener('pointerenter', function() { warmAsset(def); });
+    button.addEventListener('focus', function() { warmAsset(def); });
     stickerGrid.appendChild(button);
   });
 }
@@ -1810,6 +1833,7 @@ window.addEventListener('beforeunload', function(event) {
 
 // ===== Init =====
 async function initialize() {
+  registerAssetCacheWorker();
   savedSignature = compositionSignature();
   rebuildCategoryTabs();
   buildAssetPanel();
