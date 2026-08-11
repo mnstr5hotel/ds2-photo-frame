@@ -1,0 +1,410 @@
+[
+  {
+    "index": 0,
+    "resource_field": "LogoColor_SnowWhite",
+    "name": "SnowWhite",
+    "r": 255,
+    "g": 255,
+    "b": 255,
+    "a": 255,
+    "hex": "#FFFFFFFF",
+    "names": {
+      "en": "Snow White",
+      "zh-Hans": "雪白"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:65000"
+    }
+  },
+  {
+    "index": 1,
+    "resource_field": "LogoColor_StelthBlack",
+    "name": "StelthBlack",
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 255,
+    "hex": "#000000FF",
+    "names": {
+      "en": "Stealth Black",
+      "zh-Hans": "神秘黑"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:71182"
+    }
+  },
+  {
+    "index": 2,
+    "resource_field": "LogoColor_WolfGray",
+    "name": "WolfGray",
+    "r": 147,
+    "g": 148,
+    "b": 150,
+    "a": 255,
+    "hex": "#939496FF",
+    "names": {
+      "en": "Wolf Gray",
+      "zh-Hans": "狼灰"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:105558"
+    }
+  },
+  {
+    "index": 3,
+    "resource_field": "LogoColor_OliveDrav",
+    "name": "OliveDrav",
+    "r": 97,
+    "g": 92,
+    "b": 73,
+    "a": 255,
+    "hex": "#615C49FF",
+    "names": {
+      "en": "Olive Drab",
+      "zh-Hans": "橄榄土褐"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:69146"
+    }
+  },
+  {
+    "index": 4,
+    "resource_field": "LogoColor_MarsRed",
+    "name": "MarsRed",
+    "r": 180,
+    "g": 40,
+    "b": 37,
+    "a": 255,
+    "hex": "#B42825FF",
+    "names": {
+      "en": "Mars Red",
+      "zh-Hans": "火星红"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:55205"
+    }
+  },
+  {
+    "index": 5,
+    "resource_field": "LogoColor_EmergencyYellow",
+    "name": "EmergencyYellow",
+    "r": 221,
+    "g": 148,
+    "b": 58,
+    "a": 255,
+    "hex": "#DD943AFF",
+    "names": {
+      "en": "Emergency Yellow",
+      "zh-Hans": "紧急预警黄"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:21141"
+    }
+  },
+  {
+    "index": 6,
+    "resource_field": "LogoColor_GlassGreen",
+    "name": "GlassGreen",
+    "r": 130,
+    "g": 147,
+    "b": 88,
+    "a": 255,
+    "hex": "#829358FF",
+    "names": {
+      "en": "Grass Green",
+      "zh-Hans": "草绿"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:76903"
+    }
+  },
+  {
+    "index": 7,
+    "resource_field": "LogoColor_CoolBlue",
+    "name": "CoolBlue",
+    "r": 97,
+    "g": 138,
+    "b": 164,
+    "a": 255,
+    "hex": "#618AA4FF",
+    "names": {
+      "en": "Cool Blue",
+      "zh-Hans": "酷炫蓝"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:112270"
+    }
+  },
+  {
+    "index": 8,
+    "resource_field": "LogoColor_ExplessPurple",
+    "name": "ExplessPurple",
+    "r": 99,
+    "g": 93,
+    "b": 143,
+    "a": 255,
+    "hex": "#635D8FFF",
+    "names": {
+      "en": "Express Purple",
+      "zh-Hans": "速运紫"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:112906"
+    }
+  },
+  {
+    "index": 9,
+    "resource_field": "LogoColor_DesertPink",
+    "name": "DesertPink",
+    "r": 211,
+    "g": 174,
+    "b": 172,
+    "a": 255,
+    "hex": "#D3AEACFF",
+    "names": {
+      "en": "Desert Pink",
+      "zh-Hans": "沙漠粉红"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:48214"
+    }
+  },
+  {
+    "index": 10,
+    "resource_field": "LogoColor_CoyoteBlawn",
+    "name": "CoyoteBlawn",
+    "r": 139,
+    "g": 115,
+    "b": 97,
+    "a": 255,
+    "hex": "#8B7361FF",
+    "names": {
+      "en": "Coyote Brown",
+      "zh-Hans": "狼棕"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:18459"
+    }
+  },
+  {
+    "index": 11,
+    "resource_field": "LogoColor_DesertTan",
+    "name": "DesertTan",
+    "r": 188,
+    "g": 158,
+    "b": 119,
+    "a": 255,
+    "hex": "#BC9E77FF",
+    "names": {
+      "en": "Sandy Tan",
+      "zh-Hans": "浅褐"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:78994"
+    }
+  },
+  {
+    "index": 12,
+    "resource_field": "LogoColor_BridgesOrange",
+    "name": "BridgesOrange",
+    "r": 202,
+    "g": 139,
+    "b": 92,
+    "a": 255,
+    "hex": "#CA8B5CFF",
+    "names": {
+      "en": "Bridges Orange",
+      "zh-Hans": "布里吉斯橙"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:51787"
+    }
+  },
+  {
+    "index": 13,
+    "resource_field": "LogoColor_NavyBlue",
+    "name": "NavyBlue",
+    "r": 51,
+    "g": 60,
+    "b": 94,
+    "a": 255,
+    "hex": "#333C5EFF",
+    "names": {
+      "en": "Navy Blue",
+      "zh-Hans": "藏蓝"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:49816"
+    }
+  },
+  {
+    "index": 14,
+    "resource_field": "LogoColor_BladRed",
+    "name": "BladRed",
+    "r": 250,
+    "g": 44,
+    "b": 42,
+    "a": 255,
+    "hex": "#FA2C2AFF",
+    "names": {
+      "en": "Blood Red",
+      "zh-Hans": "血红"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:37692"
+    }
+  },
+  {
+    "index": 15,
+    "resource_field": "LogoColor_VolcanoOrange",
+    "name": "VolcanoOrange",
+    "r": 233,
+    "g": 95,
+    "b": 44,
+    "a": 255,
+    "hex": "#E95F2CFF",
+    "names": {
+      "en": "Volcanic Orange",
+      "zh-Hans": "火山橙"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:110641"
+    }
+  },
+  {
+    "index": 16,
+    "resource_field": "LogoColor_BrightYellow",
+    "name": "BrightYellow",
+    "r": 251,
+    "g": 191,
+    "b": 42,
+    "a": 255,
+    "hex": "#FBBF2AFF",
+    "names": {
+      "en": "Bright Yellow",
+      "zh-Hans": "明黄"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:36196"
+    }
+  },
+  {
+    "index": 17,
+    "resource_field": "LogoColor_GoastGreen",
+    "name": "GoastGreen",
+    "r": 232,
+    "g": 230,
+    "b": 44,
+    "a": 255,
+    "hex": "#E8E62CFF",
+    "names": {
+      "en": "Ghost Green",
+      "zh-Hans": "幽灵绿"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:35040"
+    }
+  },
+  {
+    "index": 18,
+    "resource_field": "LogoColor_SignalGreen",
+    "name": "SignalGreen",
+    "r": 44,
+    "g": 232,
+    "b": 73,
+    "a": 255,
+    "hex": "#2CE849FF",
+    "names": {
+      "en": "Signal Green",
+      "zh-Hans": "信号绿"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:107193"
+    }
+  },
+  {
+    "index": 19,
+    "resource_field": "LogoColor_LightningBlue",
+    "name": "LightningBlue",
+    "r": 44,
+    "g": 179,
+    "b": 233,
+    "a": 255,
+    "hex": "#2CB3E9FF",
+    "names": {
+      "en": "Lightning Blue",
+      "zh-Hans": "闪电蓝"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:33807"
+    }
+  },
+  {
+    "index": 20,
+    "resource_field": "LogoColor_RainbowPurple",
+    "name": "RainbowPurple",
+    "r": 137,
+    "g": 44,
+    "b": 233,
+    "a": 255,
+    "hex": "#892CE9FF",
+    "names": {
+      "en": "Prismatic Purple",
+      "zh-Hans": "棱镜紫"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:48156"
+    }
+  },
+  {
+    "index": 21,
+    "resource_field": "LogoColor_RosePink",
+    "name": "RosePink",
+    "r": 233,
+    "g": 44,
+    "b": 219,
+    "a": 255,
+    "hex": "#E92CDBFF",
+    "names": {
+      "en": "Rose Pink",
+      "zh-Hans": "玫瑰粉"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:72075"
+    }
+  },
+  {
+    "index": 22,
+    "resource_field": "LogoColor_AllReflector",
+    "name": "AllReflector",
+    "r": 189,
+    "g": 195,
+    "b": 201,
+    "a": 255,
+    "hex": "#BDC3C9FF",
+    "names": {
+      "en": "Omnireflector",
+      "zh-Hans": "深银"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:44263"
+    }
+  },
+  {
+    "index": 23,
+    "resource_field": "LogoColor_ChiralGold",
+    "name": "ChiralGold",
+    "r": 202,
+    "g": 168,
+    "b": 70,
+    "a": 255,
+    "hex": "#CAA846FF",
+    "names": {
+      "en": "Chiral Gold",
+      "zh-Hans": "开罗尔金"
+    },
+    "name_source": {
+      "localized_text_resource_id": "56:93561"
+    }
+  }
+]

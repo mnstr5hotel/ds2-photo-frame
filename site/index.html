@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="referrer" content="same-origin" />
+  <meta name="robots" content="index,follow,max-image-preview:none" />
+  <title>DEATH STRANDING 2 PHOTO FRAME</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 终端质感叠加层 -->
+  <div class="scanlines"></div>
+
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <div class="topbar-title">
+      <span class="logo-diamond" aria-hidden="true"></span>
+      <span class="title-stack">
+        <span class="title-kicker">Social Strand System · Photo Mode</span>
+        <span data-i18n="title">DEATH STRANDING 2 PHOTO FRAME</span>
+      </span>
+    </div>
+    <nav class="topbar-actions">
+      <button type="button" id="btnLang" class="btn" data-i18n="lang">LANG</button>
+      <button type="button" id="btnUpload" class="btn btn-primary">上传</button>
+      <button type="button" id="btnDownload" class="btn" data-i18n="download" disabled>下载</button>
+    </nav>
+  </header>
+
+  <!-- 主体 -->
+  <main class="main">
+    <!-- 左侧贴纸面板 -->
+    <aside class="sticker-panel">
+      <img class="ambient-mark" id="ambientMark" alt="" aria-hidden="true" draggable="false">
+      <div class="panel-heading">
+        <span class="panel-index">01</span>
+        <div>
+          <div class="panel-kicker">Photo Mode · Frame Assets</div>
+          <div class="panel-label"><span data-i18n="sticker_panel">贴纸面板</span></div>
+        </div>
+        <span class="panel-signal" aria-hidden="true"></span>
+      </div>
+      <div class="category-tabs" id="categoryTabs" aria-label="效果分类"></div>
+      <div class="sticker-grid" id="stickerGrid"></div>
+      <div class="photo-adjust-slot" id="photoAdjustSlot"></div>
+    </aside>
+
+    <!-- 画布容器 -->
+    <section class="canvas-container">
+      <div class="canvas-stage">
+        <div class="canvas-corner-tl"></div>
+        <div class="canvas-corner-tr"></div>
+        <div class="canvas-corner-bl"></div>
+        <div class="canvas-corner-br"></div>
+        <canvas id="mainCanvas" width="1280" height="720" aria-label="照片贴纸编辑画布"></canvas>
+        <div class="canvas-meta">
+          <span data-i18n="canvas_label">[ 画布 ]</span>
+          <span id="canvasReadout">X 0000 / Y 0000</span>
+        </div>
+        <div class="canvas-mode">
+          <span class="mode-dot"></span>
+          <span>Live Composite</span>
+        </div>
+      </div>
+      <div class="canvas-control-row">
+        <div class="edit-toolbar" id="editToolbar" hidden>
+          <div class="selection-data">
+            <span class="selected-name" id="selectedName">-</span>
+            <span class="snap-readout" id="snapReadout">X 000 · Y 000 · R 000°</span>
+          </div>
+          <button type="button" class="icon-btn" id="btnScaleDown" title="Scale down">−</button>
+          <button type="button" class="icon-btn" id="btnScaleUp" title="Scale up">+</button>
+          <button type="button" class="icon-btn" id="btnRotateLeft" title="Rotate left">↺</button>
+          <button type="button" class="icon-btn" id="btnRotateRight" title="Rotate right">↻</button>
+          <button type="button" class="icon-btn tool-sticker" id="btnLayerDown" title="Move below frame">⇩</button>
+          <button type="button" class="icon-btn tool-sticker" id="btnLayerUp" title="Move above frame">⇧</button>
+          <div class="sticker-color-control tool-sticker" id="stickerColorControl">
+            <button type="button" class="sticker-color-trigger" id="stickerColorTrigger" aria-label="贴纸颜色" aria-haspopup="listbox" aria-controls="stickerColorMenu" aria-expanded="false">
+              <span class="sticker-color-swatch" id="stickerColorSwatch" aria-hidden="true"></span>
+              <span class="sticker-color-name" id="stickerColorName">SnowWhite</span>
+              <span class="sticker-color-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="sticker-color-menu" id="stickerColorMenu" role="listbox" hidden></div>
+          </div>
+          <button type="button" class="icon-btn danger tool-sticker" id="btnDeleteSticker" title="Delete">×</button>
+          <button type="button" class="icon-btn tool-photo" id="btnResetPhoto" title="Reset photo">⟲</button>
+        </div>
+        <div class="history-controls">
+          <button type="button" class="history-btn" id="btnUndo" title="Undo" disabled>↶</button>
+          <button type="button" class="history-btn" id="btnRedo" title="Redo" disabled>↷</button>
+        </div>
+        <div class="quality-indicator" id="qualityIndicator" hidden>QUALITY · GOOD</div>
+      </div>
+      <!-- 隐藏的文件上传 -->
+      <input type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif" id="fileInput" hidden>
+    </section>
+  </main>
+
+  <!-- 底部状态栏 -->
+  <footer class="bottombar">
+    <div class="mode-status">
+      <span class="terminal-id">□ Photo Mode</span>
+    </div>
+    <span class="history-notice" id="historyNotice" role="status" aria-live="polite" hidden></span>
+    <span id="statusText" class="status-text" role="status" aria-live="polite">◆ 状态：就绪</span>
+  </footer>
+  <div class="legalbar" data-i18n="disclaimer">
+    非官方粉丝项目，仅供个人、非商业用途。本项目与 KOJIMA PRODUCTIONS、Sony Interactive Entertainment 或其关联方无隶属、授权或背书关系。《死亡搁浅 2：冥滩之上》相关名称、商标、图像及游戏素材的权利归各自权利人所有；如权利人提出有效要求，将及时调整或移除相关内容。
+  </div>
+
+  <script src="lang.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

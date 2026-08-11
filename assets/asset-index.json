@@ -1,0 +1,1497 @@
+[
+  {
+    "category": "frame",
+    "id": "F02",
+    "filename": "F02.png",
+    "relative_path": "frames/F02.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "9c2b5b643f7b53dbfd1fabadab0aa16f828d73117a8662fbefecabf121f45b1f",
+    "origin_class": "validated-final",
+    "menu_index": 2,
+    "names": {
+      "en": "Cinema",
+      "zh-Hans": "影院"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_49801",
+      "config_object_id": "56:49801",
+      "localized_text_resource_id": "56:12152"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F03",
+    "filename": "F03.png",
+    "relative_path": "frames/F03.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 7,
+    "alpha_max": 255,
+    "sha256": "c8a58e97343197d30d33926fce8a9d186cdb8c08760a5f449577908f624dfe4f",
+    "origin_class": "validated-final",
+    "menu_index": 3,
+    "names": {
+      "en": "Poster (Vertical)",
+      "zh-Hans": "海报（竖版）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_57281",
+      "config_object_id": "56:57281",
+      "localized_text_resource_id": "56:17381"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F04",
+    "filename": "F04.png",
+    "relative_path": "frames/F04.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "4d09ecfb2fd6aad071599ee5905678788a50e694aa3ccf6cf4e665ee6ac11229",
+    "origin_class": "validated-final",
+    "menu_index": 4,
+    "names": {
+      "en": "Poster (Horizontal)",
+      "zh-Hans": "海报（横版）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_100207",
+      "config_object_id": "56:100207",
+      "localized_text_resource_id": "56:13271"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F05",
+    "filename": "F05_silhouette.png",
+    "relative_path": "frames/F05_silhouette.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "772a3d54dafcd024af422839ff9373524f3f43a9faae8092d6ff7dbf97da48aa",
+    "origin_class": "validated-final",
+    "menu_index": 5,
+    "names": {
+      "en": "Silhouette",
+      "zh-Hans": "剪影"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_87815",
+      "config_object_id": "56:87815",
+      "localized_text_resource_id": "56:56448"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F06",
+    "filename": "F06.png",
+    "relative_path": "frames/F06.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "157fd261333a9d2385b837538374ced19d3a7bcbb452b2b3e3a5e61cc4afb27a",
+    "origin_class": "validated-final",
+    "menu_index": 6,
+    "names": {
+      "en": "DS2",
+      "zh-Hans": "DS2"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_7015",
+      "config_object_id": "56:7015",
+      "localized_text_resource_id": "56:78599"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F07",
+    "filename": "F07.png",
+    "relative_path": "frames/F07.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "b425524c5b65fe301867b77244edb53ad37aeae17d085c180e3c6902cec8afba",
+    "origin_class": "validated-final",
+    "menu_index": 7,
+    "names": {
+      "en": "Instant Photo",
+      "zh-Hans": "拍立得"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_26267",
+      "config_object_id": "56:26267",
+      "localized_text_resource_id": "56:17119"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F08",
+    "filename": "F08.png",
+    "relative_path": "frames/F08.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "2010bdce0db09a76dcc5896a2dea02061d46207bc0e5fb6f42d2fe8f76dd47d0",
+    "origin_class": "validated-final",
+    "menu_index": 8,
+    "names": {
+      "en": "Film Strip (Horizontal)",
+      "zh-Hans": "胶卷（横版）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_37156",
+      "config_object_id": "56:37156",
+      "localized_text_resource_id": "56:42195"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F09",
+    "filename": "F09.png",
+    "relative_path": "frames/F09.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "c34af26dd98fce8aea7b993c78a9945006525f0b2c9d7706e548e9fa160983dc",
+    "origin_class": "validated-final",
+    "menu_index": 9,
+    "names": {
+      "en": "Film Strip (Vertical)",
+      "zh-Hans": "胶卷（竖版）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_54606",
+      "config_object_id": "56:54606",
+      "localized_text_resource_id": "56:77656"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F10",
+    "filename": "F10.png",
+    "relative_path": "frames/F10.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 20,
+    "alpha_max": 255,
+    "sha256": "fad77811ae6d8917a2ecc3e800fb1b1aa86bae29a0f3cac5770a2023ef7e20d6",
+    "origin_class": "validated-final",
+    "menu_index": 10,
+    "names": {
+      "en": "Overexposed",
+      "zh-Hans": "过曝"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_90553",
+      "config_object_id": "56:90553",
+      "localized_text_resource_id": "56:102594"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F11",
+    "filename": "F11_square_black.png",
+    "relative_path": "frames/F11_square_black.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "3e7823c04ad1a4c809ae7980c5ce6051376718bacaf34df4f538b3be6c93b977",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 11,
+    "names": {
+      "en": "Square (Black)",
+      "zh-Hans": "方框 (黑色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_87818",
+      "config_object_id": "56:87818",
+      "localized_text_resource_id": "56:93017"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F12",
+    "filename": "F12_square_white.png",
+    "relative_path": "frames/F12_square_white.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "1cda07aa4080e4d8fa54cf48c386526c46feaa5b17011ee78529a528aa8ac0f6",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 12,
+    "names": {
+      "en": "Square (White)",
+      "zh-Hans": "方框 (白色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_86686",
+      "config_object_id": "56:86686",
+      "localized_text_resource_id": "56:8353"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F13",
+    "filename": "F13_heart_black.png",
+    "relative_path": "frames/F13_heart_black.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "95fab65bc80e575406ebac5d8d7c8a78e3940f777a45a3112eb3468b4e748aff",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 13,
+    "names": {
+      "en": "Heart (Black)",
+      "zh-Hans": "心形 (黑色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_14651",
+      "config_object_id": "56:14651",
+      "localized_text_resource_id": "56:38089"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F14",
+    "filename": "F14_heart_white.png",
+    "relative_path": "frames/F14_heart_white.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "9d4159c1e74d7820abe4a47fac7f38777d56f8d696b269cf239c60ce29d230dd",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 14,
+    "names": {
+      "en": "Heart (White)",
+      "zh-Hans": "心形 (白色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_77740",
+      "config_object_id": "56:77740",
+      "localized_text_resource_id": "56:19622"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F15",
+    "filename": "F15_diamond_black.png",
+    "relative_path": "frames/F15_diamond_black.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "3b6963cd53342cc5ca96139be5ca16d419838a75941ff7863e90adecd2db0c80",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 15,
+    "names": {
+      "en": "Diamond (Black)",
+      "zh-Hans": "菱形 (黑色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_7739",
+      "config_object_id": "56:7739",
+      "localized_text_resource_id": "56:23040"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F16",
+    "filename": "F16_diamond_white.png",
+    "relative_path": "frames/F16_diamond_white.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "c1bbb12cabcabf5456d959b66ac3e2729e12af93db783ce923ffb7f2069a0be9",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 16,
+    "names": {
+      "en": "Diamond (White)",
+      "zh-Hans": "菱形 (白色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_77596",
+      "config_object_id": "56:77596",
+      "localized_text_resource_id": "56:43383"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F17",
+    "filename": "F17_corner_black.png",
+    "relative_path": "frames/F17_corner_black.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "ed3a157adb0c966d2408d96c931363071446d770c6de03be336f53bd4d2da11a",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 17,
+    "names": {
+      "en": "Tilt (Black)",
+      "zh-Hans": "倾斜（黑）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_108904",
+      "config_object_id": "56:108904",
+      "localized_text_resource_id": "56:60727"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F18",
+    "filename": "F18_corner_white.png",
+    "relative_path": "frames/F18_corner_white.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "2d0a8007763bc91a39307d6543ea6dc72cf83276b5e1941ab584c70bd073ebce",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 18,
+    "names": {
+      "en": "Tilt (White)",
+      "zh-Hans": "倾斜（白）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_63577",
+      "config_object_id": "56:63577",
+      "localized_text_resource_id": "56:36261"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F19",
+    "filename": "F19_handprint_black.png",
+    "relative_path": "frames/F19_handprint_black.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "74a15d6464d3b95165b4a1cb6a84c7b3a46b4f143dec9c3882056b49605c879a",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 19,
+    "names": {
+      "en": "Handprint (Black)",
+      "zh-Hans": "手印 (黑色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_10411",
+      "config_object_id": "56:10411",
+      "localized_text_resource_id": "56:71450"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F20",
+    "filename": "F20_handprint_white.png",
+    "relative_path": "frames/F20_handprint_white.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "98208e655e1fa839f3f2bbc1570a0515407577ab138bb3bab948ea60bccb47ac",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 20,
+    "names": {
+      "en": "Handprint (White)",
+      "zh-Hans": "手印 (白色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_45579",
+      "config_object_id": "56:45579",
+      "localized_text_resource_id": "56:37421"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F21",
+    "filename": "F21.png",
+    "relative_path": "frames/F21.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "aae51e16a56a6fc57c1e1005399f65a7496727cb24785245761373fbba843209",
+    "origin_class": "validated-final",
+    "menu_index": 21,
+    "names": {
+      "en": "Handprints (#1)",
+      "zh-Hans": "手印 (#1)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_25218",
+      "config_object_id": "56:25218",
+      "localized_text_resource_id": "56:54681"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F22",
+    "filename": "F22.png",
+    "relative_path": "frames/F22.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "6ff6a397b82525c560fe650fb1ee097ce72cc2ba0dd6fec6c13ef4cc71d230d1",
+    "origin_class": "validated-final",
+    "menu_index": 22,
+    "names": {
+      "en": "Handprints (#2)",
+      "zh-Hans": "手印 (#2)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_53390",
+      "config_object_id": "56:53390",
+      "localized_text_resource_id": "56:70391"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F23",
+    "filename": "F23_like_black.png",
+    "relative_path": "frames/F23_like_black.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "e51fae827ce612c4d3292df39acd6c1820d8b864755fe246c7a00d63e3911fe9",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 23,
+    "names": {
+      "en": "Likes (Black)",
+      "zh-Hans": "点赞 (黑色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_39440",
+      "config_object_id": "56:39440",
+      "localized_text_resource_id": "56:52126"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F24",
+    "filename": "F24_like_white.png",
+    "relative_path": "frames/F24_like_white.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "f90863e98b9bf4b2a82317264f368f2ed50d1800c5ac2285f66322462f49a97d",
+    "origin_class": "temporary-v1-manual-promotion",
+    "menu_index": 24,
+    "names": {
+      "en": "Likes (White)",
+      "zh-Hans": "点赞 (白色)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_74630",
+      "config_object_id": "56:74630",
+      "localized_text_resource_id": "56:70657"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F25",
+    "filename": "F25.png",
+    "relative_path": "frames/F25.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "3cb77cea7619efc271d82590766bb6cc80466e367584f8e92588a2c5eb5c2137",
+    "origin_class": "validated-final",
+    "menu_index": 25,
+    "names": {
+      "en": "Lots of Likes",
+      "zh-Hans": "大量点赞"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_15553",
+      "config_object_id": "56:15553",
+      "localized_text_resource_id": "56:87703"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F26",
+    "filename": "F26.png",
+    "relative_path": "frames/F26.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "409a776ea7e86f8c5768c8bd27c9e1534629a01991ac326569017d56995368ce",
+    "origin_class": "validated-final",
+    "menu_index": 26,
+    "names": {
+      "en": "Tar",
+      "zh-Hans": "焦油"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_94145",
+      "config_object_id": "56:94145",
+      "localized_text_resource_id": "56:83319"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F27",
+    "filename": "F27.png",
+    "relative_path": "frames/F27.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "3092d0fc88a9fc8b029f6f704b5a7da29f554b09f9ffae0234813d66b6b96653",
+    "origin_class": "validated-final",
+    "menu_index": 27,
+    "names": {
+      "en": "Strands",
+      "zh-Hans": "冥带"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_82710",
+      "config_object_id": "56:82710",
+      "localized_text_resource_id": "56:19735"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F28",
+    "filename": "F28.png",
+    "relative_path": "frames/F28.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "1be0c3433d2ee39d33dc09363b4069f855d205cb164e032fcc2469a9d62e4e3f",
+    "origin_class": "validated-final",
+    "menu_index": 28,
+    "names": {
+      "en": "Speed Lines (Black)",
+      "zh-Hans": "速度线（黑）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_35566",
+      "config_object_id": "56:35566",
+      "localized_text_resource_id": "56:33473"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F29",
+    "filename": "F29.png",
+    "relative_path": "frames/F29.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "4994d4a8b5614d73dba09d6ae0e0cdc326d9b6248cf136c63022252efa037ca3",
+    "origin_class": "validated-final",
+    "menu_index": 29,
+    "names": {
+      "en": "Speed Lines (White)",
+      "zh-Hans": "速度线（白）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_93919",
+      "config_object_id": "56:93919",
+      "localized_text_resource_id": "56:78781"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F30",
+    "filename": "F30_tape.png",
+    "relative_path": "frames/F30_tape.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "8b6e67dad40220c11eeaec4702780b664121c29d91aa667214dfc270ce8b1d5a",
+    "origin_class": "validated-final",
+    "menu_index": 30,
+    "names": {
+      "en": "Damage Sensor Tape",
+      "zh-Hans": "破损传感器胶带"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_45975",
+      "config_object_id": "56:45975",
+      "localized_text_resource_id": "56:41224"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F31",
+    "filename": "F31_fragile.png",
+    "relative_path": "frames/F31_fragile.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "49001cfe1438b77b3174781677d6c452d904e6e932cedeb3097a335ae50529f9",
+    "origin_class": "validated-final",
+    "menu_index": 31,
+    "names": {
+      "en": "Fragile Tape",
+      "zh-Hans": "易碎标识胶带"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_74144",
+      "config_object_id": "56:74144",
+      "localized_text_resource_id": "56:52852"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F32",
+    "filename": "F32.png",
+    "relative_path": "frames/F32.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "26b1e25f23729745062ace817cdcabd52772b0b55eb1724da1e77a882bae6d09",
+    "origin_class": "validated-final",
+    "menu_index": 32,
+    "names": {
+      "en": "Meter of Memories",
+      "zh-Hans": "记忆时光机"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_59168",
+      "config_object_id": "56:59168",
+      "localized_text_resource_id": "56:42939"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F33",
+    "filename": "F33.png",
+    "relative_path": "frames/F33.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "ddcfb8a799d66d3b119ae43248aa4d2b1ac643fd6c4eaa9940c00f9e54be631b",
+    "origin_class": "validated-final",
+    "menu_index": 33,
+    "names": {
+      "en": "Kid-Friendly",
+      "zh-Hans": "童趣"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_107337",
+      "config_object_id": "56:107337",
+      "localized_text_resource_id": "56:106892"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F34",
+    "filename": "F34.png",
+    "relative_path": "frames/F34.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 154,
+    "sha256": "e49b832fa9c71d2eb0cd8380a94cf45879d2944dee90bc7c82f70156fbf3fba5",
+    "origin_class": "validated-final",
+    "menu_index": 34,
+    "names": {
+      "en": "Sparkly",
+      "zh-Hans": "闪闪发光"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_104826",
+      "config_object_id": "56:104826",
+      "localized_text_resource_id": "56:74011"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F35",
+    "filename": "F35.png",
+    "relative_path": "frames/F35.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "d1715e9b3698332e6247dd8ed884958301777add894977fc22e572ae0f56576a",
+    "origin_class": "validated-final",
+    "menu_index": 35,
+    "names": {
+      "en": "Neon",
+      "zh-Hans": "霓虹"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_83502",
+      "config_object_id": "56:83502",
+      "localized_text_resource_id": "56:26165"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F36",
+    "filename": "F36.png",
+    "relative_path": "frames/F36.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 125,
+    "sha256": "b4fd1e662997c94bbd2af4339a07f95e54117588bd37640651a2af1de80a00f8",
+    "origin_class": "validated-final",
+    "menu_index": 36,
+    "names": {
+      "en": "Digital",
+      "zh-Hans": "数字"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_109680",
+      "config_object_id": "56:109680",
+      "localized_text_resource_id": "56:64877"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F37",
+    "filename": "F37.png",
+    "relative_path": "frames/F37.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "53d0d5c25da06fc5a8e05406e9108d69266e12cc9f7c17616e0611175908de4b",
+    "origin_class": "validated-final",
+    "menu_index": 37,
+    "names": {
+      "en": "SSS",
+      "zh-Hans": "SSS"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_77490",
+      "config_object_id": "56:77490",
+      "localized_text_resource_id": "56:43070"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F38",
+    "filename": "F38.png",
+    "relative_path": "frames/F38.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "4eff3e38e8b1201188793c717c71928b05b763f996cefb1723c2f59299c737c0",
+    "origin_class": "validated-final",
+    "menu_index": 38,
+    "names": {
+      "en": "Chiral Tea",
+      "zh-Hans": "开罗尔茶"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_81921",
+      "config_object_id": "56:81921",
+      "localized_text_resource_id": "56:62317"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F39",
+    "filename": "F39.png",
+    "relative_path": "frames/F39.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "3c06c02b400d94da7e0f7afbb52bd34724b87f353535615d6eecadaa23ebef50",
+    "origin_class": "validated-final",
+    "menu_index": 39,
+    "names": {
+      "en": "Mexico",
+      "zh-Hans": "墨西哥"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_54610",
+      "config_object_id": "56:54610",
+      "localized_text_resource_id": "56:51301"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F40",
+    "filename": "F40_australia.png",
+    "relative_path": "frames/F40_australia.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "56a2815b665aff4b92abacc757ef400b0d932cdc4e1d8469b06c3e220ad6fe32",
+    "origin_class": "validated-final",
+    "menu_index": 40,
+    "names": {
+      "en": "Australia",
+      "zh-Hans": "澳大利亚"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_33980",
+      "config_object_id": "56:33980",
+      "localized_text_resource_id": "56:66042"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F41",
+    "filename": "F41_pekora.png",
+    "relative_path": "frames/F41_pekora.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "09e9c5423294c6fdfa335ee207af891d409f162b160c02cdc3076adf4cc938dd",
+    "origin_class": "validated-final",
+    "menu_index": 41,
+    "names": {
+      "en": "Data Scientist",
+      "zh-Hans": "数据科学家"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_65517",
+      "config_object_id": "56:65517",
+      "localized_text_resource_id": "56:95865"
+    }
+  },
+  {
+    "category": "frame",
+    "id": "F42",
+    "filename": "F42.png",
+    "relative_path": "frames/F42.png",
+    "width": 2560,
+    "height": 1440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "8c68d5d0a383d8b84f8dacb0cce2c28f5bc56609aba9e2821050c70f9d63844f",
+    "origin_class": "validated-final",
+    "menu_index": 42,
+    "names": {
+      "en": "Pixel Art",
+      "zh-Hans": "像素艺术"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeUIFrame_56_34092",
+      "config_object_id": "56:34092",
+      "localized_text_resource_id": "56:37966"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S02",
+    "filename": "S02_ds2-title-vertical.png",
+    "relative_path": "stickers/S02_ds2-title-vertical.png",
+    "width": 852,
+    "height": 379,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "8c0655000394a8a7029d0d63defc871d4b0fbe82e2fe84265150d7098c59127e",
+    "origin_class": "final-sticker",
+    "menu_index": 2,
+    "names": {
+      "en": "Title 1",
+      "zh-Hans": "标题1"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_58900",
+      "config_object_id": "56:58900",
+      "localized_text_resource_id": "56:101531"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S03",
+    "filename": "S03_death-stranding-title-small.png",
+    "relative_path": "stickers/S03_death-stranding-title-small.png",
+    "width": 791,
+    "height": 1600,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "959a4cbddc173243c8986c7ab648d85c832a088bb0745ef4977564a54d715339",
+    "origin_class": "final-sticker",
+    "menu_index": 3,
+    "names": {
+      "en": "Title 2",
+      "zh-Hans": "标题2"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_77177",
+      "config_object_id": "56:77177",
+      "localized_text_resource_id": "56:104405"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S05",
+    "filename": "S05_ds2-on-the-beach-title.png",
+    "relative_path": "stickers/S05_ds2-on-the-beach-title.png",
+    "width": 2048,
+    "height": 166,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "9a6a86d706bde63c008124d569862b96a6cecbff199b2a67fa0bb77fd0db2127",
+    "origin_class": "final-sticker",
+    "menu_index": 5,
+    "names": {
+      "en": "Title 4",
+      "zh-Hans": "标题4"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_76216",
+      "config_object_id": "56:76216",
+      "localized_text_resource_id": "56:99434"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S06",
+    "filename": "S06_ds2-mark.png",
+    "relative_path": "stickers/S06_ds2-mark.png",
+    "width": 655,
+    "height": 192,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "806816498d01d88c42e81a5b35b406cba5bcbdf4787fd107fe5bb8752a5ea0f5",
+    "origin_class": "final-sticker",
+    "menu_index": 6,
+    "names": {
+      "en": "Title 5",
+      "zh-Hans": "标题5"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_65564",
+      "config_object_id": "56:65564",
+      "localized_text_resource_id": "56:103243"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S07",
+    "filename": "S07_death-stranding-japanese.png",
+    "relative_path": "stickers/S07_death-stranding-japanese.png",
+    "width": 2048,
+    "height": 242,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "73d2bc734c59c7a049fdc004631081faede534954d6bf487e7749961148ec358",
+    "origin_class": "final-sticker",
+    "menu_index": 7,
+    "names": {
+      "en": "Death Stranding (Japanese Characters)",
+      "zh-Hans": "Death Stranding（日文）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_11328",
+      "config_object_id": "56:11328",
+      "localized_text_resource_id": "56:93277"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S08",
+    "filename": "S08_ds2-japanese.png",
+    "relative_path": "stickers/S08_ds2-japanese.png",
+    "width": 1322,
+    "height": 387,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "bdb73d5b3ba7295b833aff79afc57e748123bc7d02f8718f4f2bd1467ab6c228",
+    "origin_class": "final-sticker",
+    "menu_index": 8,
+    "names": {
+      "en": "DS2 (Japanese Characters)",
+      "zh-Hans": "DS2（日文）"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_23380",
+      "config_object_id": "56:23380",
+      "localized_text_resource_id": "56:65960"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S09",
+    "filename": "S09_why-me.png",
+    "relative_path": "stickers/S09_why-me.png",
+    "width": 490,
+    "height": 519,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "205c31e8bd048df88b9c08012be69f5a454e3e4f62934fba7701a4c325edba47",
+    "origin_class": "final-sticker",
+    "menu_index": 9,
+    "names": {
+      "en": "Why Me?",
+      "zh-Hans": "为什么是我？"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_15941",
+      "config_object_id": "56:15941",
+      "localized_text_resource_id": "56:36748"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S10",
+    "filename": "S10_why.png",
+    "relative_path": "stickers/S10_why.png",
+    "width": 596,
+    "height": 521,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "b43549b8d60ee86847de59701da7ecc8c1d862ad670455fb1f836c9e334522d1",
+    "origin_class": "final-sticker",
+    "menu_index": 10,
+    "names": {
+      "en": "How come?",
+      "zh-Hans": "为何如此？"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_108121",
+      "config_object_id": "56:108121",
+      "localized_text_resource_id": "56:27373"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S11",
+    "filename": "S11_where-am-i.png",
+    "relative_path": "stickers/S11_where-am-i.png",
+    "width": 748,
+    "height": 719,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "87b3a990196ecbdb00c0cd379228fe00d953c24ec0d8a3bbd2e15e8f80dedcce",
+    "origin_class": "final-sticker",
+    "menu_index": 11,
+    "names": {
+      "en": "Where am I?",
+      "zh-Hans": "我在哪儿？"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_13871",
+      "config_object_id": "56:13871",
+      "localized_text_resource_id": "56:9135"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S12",
+    "filename": "S12_who-am-i.png",
+    "relative_path": "stickers/S12_who-am-i.png",
+    "width": 495,
+    "height": 720,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "dce9f72bf9a5f289cc2cb0aefbc3b964bb9b355fb452cee4691765969975bcde",
+    "origin_class": "final-sticker",
+    "menu_index": 12,
+    "names": {
+      "en": "Who am I?",
+      "zh-Hans": "我是谁？"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_20490",
+      "config_object_id": "56:20490",
+      "localized_text_resource_id": "56:81903"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S13",
+    "filename": "S13_a-hideo-kojima-game-1.png",
+    "relative_path": "stickers/S13_a-hideo-kojima-game-1.png",
+    "width": 1024,
+    "height": 34,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "4366a7165f1ea9ec23171e4236e04201771cafdc3339dbc0db8c1ae76827df51",
+    "origin_class": "final-sticker",
+    "menu_index": 13,
+    "names": {
+      "en": "A Hideo Kojima Game (#1)",
+      "zh-Hans": "A Hideo Kojima Game (#1)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_20374",
+      "config_object_id": "56:20374",
+      "localized_text_resource_id": "56:97750"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S15",
+    "filename": "S15_should-we-have-connected-1.png",
+    "relative_path": "stickers/S15_should-we-have-connected-1.png",
+    "width": 1024,
+    "height": 30,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "8549b30dd4bde942962cdb9da69254aabe13da1f461c9ce67d5930e4ca10a54a",
+    "origin_class": "final-sticker",
+    "menu_index": 15,
+    "names": {
+      "en": "Should We Have Connected? (#1)",
+      "zh-Hans": "Should We Have Connected? (#1)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_52407",
+      "config_object_id": "56:52407",
+      "localized_text_resource_id": "56:80751"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S17",
+    "filename": "S17_kojima-productions-1.png",
+    "relative_path": "stickers/S17_kojima-productions-1.png",
+    "width": 1024,
+    "height": 186,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "01b95dd395ed5dd3f77c841e4f66f74c6fb7b54b1ef95855ad9ee37973dc38dd",
+    "origin_class": "final-sticker",
+    "menu_index": 17,
+    "names": {
+      "en": "KOJIMA PRODUCTIONS (#1)",
+      "zh-Hans": "KOJIMA PRODUCTIONS (#1)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_42955",
+      "config_object_id": "56:42955",
+      "localized_text_resource_id": "56:91620"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S18",
+    "filename": "S18_kojima-productions-2.png",
+    "relative_path": "stickers/S18_kojima-productions-2.png",
+    "width": 480,
+    "height": 512,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "4e86319602f1832f06d31336c55aa552eecf1f0eabee3047e5169b05df42d998",
+    "origin_class": "final-sticker",
+    "menu_index": 18,
+    "names": {
+      "en": "KOJIMA PRODUCTIONS (#2)",
+      "zh-Hans": "KOJIMA PRODUCTIONS (#2)"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_68805",
+      "config_object_id": "56:68805",
+      "localized_text_resource_id": "56:69423"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S19",
+    "filename": "S19_sapiens-to-ludens.png",
+    "relative_path": "stickers/S19_sapiens-to-ludens.png",
+    "width": 2048,
+    "height": 458,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "e9f5b7efc3822a01d8568a4d6af468b8195581ed961868ce49f295cce4559809",
+    "origin_class": "final-sticker",
+    "menu_index": 19,
+    "names": {
+      "en": "From Sapiens to Ludens",
+      "zh-Hans": "从智人到卢登斯"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_94063",
+      "config_object_id": "56:94063",
+      "localized_text_resource_id": "56:89186"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S20",
+    "filename": "S20_drawbridge.png",
+    "relative_path": "stickers/S20_drawbridge.png",
+    "width": 356,
+    "height": 474,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "c8df7d143f90849c3efa91a4db7b726736bfe469b45a05db2a2bbd88cb9718fb",
+    "origin_class": "final-sticker",
+    "menu_index": 20,
+    "names": {
+      "en": "Drawbridge",
+      "zh-Hans": "卓布里吉"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_50131",
+      "config_object_id": "56:50131",
+      "localized_text_resource_id": "56:79638"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S21",
+    "filename": "S21_apac.png",
+    "relative_path": "stickers/S21_apac.png",
+    "width": 440,
+    "height": 484,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "0be3ab5159a085fbb64c890ac2c9416377c3365ef9c651c5a27ec5db22d52c1e",
+    "origin_class": "final-sticker",
+    "menu_index": 21,
+    "names": {
+      "en": "APAC",
+      "zh-Hans": "APAC"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_110964",
+      "config_object_id": "56:110964",
+      "localized_text_resource_id": "56:107156"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S22",
+    "filename": "S22_ghost-mech.png",
+    "relative_path": "stickers/S22_ghost-mech.png",
+    "width": 390,
+    "height": 440,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "bf808d50b875702759ee8e2f28ff00456bd4e91f988507faa15f3b0505836062",
+    "origin_class": "final-sticker",
+    "menu_index": 22,
+    "names": {
+      "en": "Ghost Mech",
+      "zh-Hans": "幽灵机甲"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_10503",
+      "config_object_id": "56:10503",
+      "localized_text_resource_id": "56:15354"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S23",
+    "filename": "S23_apas.png",
+    "relative_path": "stickers/S23_apas.png",
+    "width": 408,
+    "height": 314,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "2bf6ce776028f5c5f115f51be74a94ddfe35767d783e611802a5282eec37b476",
+    "origin_class": "final-sticker",
+    "menu_index": 23,
+    "names": {
+      "en": "APAS",
+      "zh-Hans": "APAS"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_72157",
+      "config_object_id": "56:72157",
+      "localized_text_resource_id": "56:5727"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S24",
+    "filename": "S24_dhv-magellan.png",
+    "relative_path": "stickers/S24_dhv-magellan.png",
+    "width": 708,
+    "height": 272,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "1ca9145317aff4bf3c658ec6b771d0208d91408153f94c4954e9661b657981cf",
+    "origin_class": "final-sticker",
+    "menu_index": 24,
+    "names": {
+      "en": "DHV Magellan",
+      "zh-Hans": "DHV麦哲伦号"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_30086",
+      "config_object_id": "56:30086",
+      "localized_text_resource_id": "56:71013"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S25",
+    "filename": "S25_bt-handprint.png",
+    "relative_path": "stickers/S25_bt-handprint.png",
+    "width": 968,
+    "height": 920,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "97e3cb326fc98c2f104b1fc26c84b9de7c448876704736ddfb0a2c5f5e1d1235",
+    "origin_class": "final-sticker",
+    "menu_index": 25,
+    "names": {
+      "en": "BT",
+      "zh-Hans": "BT"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_81969",
+      "config_object_id": "56:81969",
+      "localized_text_resource_id": "56:56350"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S26",
+    "filename": "S26_strand-lines.png",
+    "relative_path": "stickers/S26_strand-lines.png",
+    "width": 716,
+    "height": 600,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "72e107c94b802fedc356a29114aefe9c3753799ac524acf8a3ae2a84fdd85e56",
+    "origin_class": "final-sticker",
+    "menu_index": 26,
+    "names": {
+      "en": "Strand",
+      "zh-Hans": "绞合线"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_26634",
+      "config_object_id": "56:26634",
+      "localized_text_resource_id": "56:25798"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S27",
+    "filename": "S27_like.png",
+    "relative_path": "stickers/S27_like.png",
+    "width": 520,
+    "height": 272,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "94568ce1b99911c9d422f916a094df2fd9ca6151c7fa2d80d61a29eb74ef1adf",
+    "origin_class": "final-sticker",
+    "menu_index": 27,
+    "names": {
+      "en": "Like!",
+      "zh-Hans": "赞！"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_44291",
+      "config_object_id": "56:44291",
+      "localized_text_resource_id": "56:112832"
+    }
+  },
+  {
+    "category": "sticker",
+    "id": "S28",
+    "filename": "S28_caution.png",
+    "relative_path": "stickers/S28_caution.png",
+    "width": 1008,
+    "height": 370,
+    "mode": "RGBA",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "sha256": "ffcb3bc461911f224692562692e94fa253bbf68952001e8d0355b7967ad4cd04",
+    "origin_class": "final-sticker",
+    "menu_index": 28,
+    "names": {
+      "en": "CAUTION",
+      "zh-Hans": "小心"
+    },
+    "name_source": {
+      "config": "DSUIPhotoModeLogo_56_67785",
+      "config_object_id": "56:67785",
+      "localized_text_resource_id": "56:29621"
+    }
+  }
+]

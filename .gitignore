@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.next-edgeone/
+.next-node/
+dist/
+.env*.local
+npm-debug.log*
+.vinext/
+.wrangler/
+.tools/
