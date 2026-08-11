@@ -3,7 +3,21 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/pages.yml'
+      - 'assets/**'
+      - 'site/**'
+      - 'tools/**'
+      - 'package.json'
+      - 'package-lock.json'
   pull_request:
+    paths:
+      - '.github/workflows/pages.yml'
+      - 'assets/**'
+      - 'site/**'
+      - 'tools/**'
+      - 'package.json'
+      - 'package-lock.json'
   workflow_dispatch:
 
 permissions:
@@ -63,4 +77,11 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: node tools/wait-for-static.mjs
-      - run: npm run smoke
+      - name: Smoke test
+        run: |
+          npm run smoke || (
+            echo "Smoke test failed once; waiting for GitHub Pages to settle before retrying."
+            sleep 60
+            node tools/wait-for-static.mjs
+            npm run smoke
+          )
