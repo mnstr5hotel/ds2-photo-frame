@@ -40,6 +40,17 @@ Cloudflare 免费 Worker 已部署到 `https://ds2-photo-frame.ds2-photo-tools.w
 
 不要把 `DS_ASSET_SECRET` 提交到 GitHub。首次部署后应检查 `/api/catalog`、贴纸和相框缩略图、贴纸换色、照片导入及 PNG 导出；只验证首页并不足以证明受保护素材路由已经随服务端构建发布。
 
+### 自动发布闭环
+
+仓库的 `Verify` 工作流会在 Pull Request 和 `main` 推送时自动执行依赖安装、发布前检查与 Next.js 生产构建。检查通过并合并到 `main` 后，现有 Git 关联会自动触发 EdgeOne 部署。
+
+如需自动执行部署后浏览器回归，在 GitHub 仓库中配置：
+
+- Actions Secret `EDGEONE_SMOKE_URL`：填写不含临时令牌的稳定项目域名。
+- Actions Variable `EDGEONE_SMOKE_ENABLED`：填写 `true`。
+
+配置后，`EdgeOne smoke` 会等待目标 Git 提交真正上线，再检查贴纸、相框、颜色、上传、换色、PNG 导出和原图直链保护。带 `eo_token` 的三小时预览链接不适合作为长期 Secret。
+
 ## 平台约束
 
 - 中国大陆稳定托管不是修改 HTML、JavaScript 或 DNS 就能解决的问题；关键是独立域名、境内基础设施和合规备案。

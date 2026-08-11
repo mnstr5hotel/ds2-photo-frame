@@ -8,3 +8,4 @@ npm-debug.log*
 .vinext/
 .wrangler/
 .tools/
+site/build.json

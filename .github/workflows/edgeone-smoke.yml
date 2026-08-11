@@ -1,0 +1,34 @@
+name: EdgeOne smoke
+
+on:
+  workflow_run:
+    workflows: [Verify]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && vars.EDGEONE_SMOKE_ENABLED == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      EXPECTED_COMMIT: ${{ github.event.workflow_run.head_sha || github.sha }}
+      SMOKE_BASE_URL: ${{ secrets.EDGEONE_SMOKE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.EXPECTED_COMMIT }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/wait-for-edgeone.mjs
+      - run: npm run smoke

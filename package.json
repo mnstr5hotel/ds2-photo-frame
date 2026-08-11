@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "vinext build && node tools/harden-dist.mjs",
-    "build:next": "next build",
+    "build:next": "node tools/write-build-info.mjs && next build",
     "build:node": "node tools/build-node.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "start:node": "node .next-node/standalone/server.js",

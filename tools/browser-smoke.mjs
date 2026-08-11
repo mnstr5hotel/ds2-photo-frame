@@ -4,7 +4,9 @@ import { chromium } from 'playwright-core';
 const root = path.resolve(import.meta.dirname, '..');
 const baseUrl = process.env.SMOKE_BASE_URL || 'http://127.0.0.1:4174';
 const isSitesProduction = new URL(baseUrl).hostname.endsWith('.chatgpt.site');
-const executablePath = process.env.BROWSER_PATH || 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+const executablePath = process.env.BROWSER_PATH || (process.platform === 'win32'
+  ? 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'
+  : chromium.executablePath());
 const browser = await chromium.launch({ executablePath: executablePath, headless: true });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 const errors = [];
