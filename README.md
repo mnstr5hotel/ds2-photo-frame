@@ -23,10 +23,6 @@ The tool is designed as a simple browser-based editor. Your selected photo is pr
 - PNG export at 2560 x 1440
 - Chinese and English interface labels
 
-## Notes
-
-This project is a static website hosted with GitHub Pages. Public hosting means the website files and included visual assets can be accessed by visitors.
-
 ## Disclaimer
 
 This is an unofficial, non-commercial fan project. It is not affiliated with, authorized by, or endorsed by KOJIMA PRODUCTIONS, Sony Interactive Entertainment, or their affiliates.
@@ -59,10 +55,6 @@ DS2 Photo Frame 可以让你在浏览器中上传本地图片，添加游戏风�
 - 支持撤销与重做
 - 导出 2560 x 1440 PNG 图片
 - 支持中文和英文界面显示
-
-## 说明
-
-本项目是托管在 GitHub Pages 上的静态网站。由于采用公开托管，网站文件和其中包含的视觉素材可以被访问者直接获取。
 
 ## 免责声明
 
