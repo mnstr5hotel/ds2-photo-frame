@@ -404,12 +404,25 @@ function createFallbackAsset(def) {
   return image;
 }
 
-function loadAsset(def) {
+function preloadAssetForUse(def) {
+  if (!def || assetImages[def.id]) return;
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = def.src;
+  link.fetchPriority = 'high';
+  document.head.appendChild(link);
+  setTimeout(function() { link.remove(); }, 15000);
+}
+
+function loadAsset(def, priority) {
   if (assetImages[def.id]) return Promise.resolve(assetImages[def.id]);
+  if (priority === 'high') preloadAssetForUse(def);
   if (assetLoadPromises[def.id]) return assetLoadPromises[def.id];
 
   assetLoadPromises[def.id] = new Promise(function(resolve) {
     const image = new Image();
+    image.fetchPriority = priority || 'auto';
     image.onload = function() {
       assetImages[def.id] = image;
       resolve(image);
@@ -429,7 +442,7 @@ function loadAsset(def) {
 
 function warmAsset(def) {
   if (!def || assetImages[def.id] || assetLoadPromises[def.id]) return;
-  loadAsset(def).catch(function(error) {
+  loadAsset(def, 'low').catch(function(error) {
     console.warn('Asset warm-up failed:', def.id, error);
   });
 }
@@ -788,7 +801,7 @@ async function setFrame(frameId) {
     const def = ASSET_DEFS.find(function(item) { return item.id === frameId && item.category === 'frames'; });
     if (!def) return;
     updateStatus(t('status_sticker_loading'), 'status_sticker_loading');
-    await loadAsset(def);
+    await loadAsset(def, 'high');
   }
   const before = captureSnapshot();
   const hadFrame = !!state.frameId;
@@ -814,7 +827,7 @@ async function addSticker(defId) {
   const def = ASSET_DEFS.find(function(item) { return item.id === defId && item.category === 'stickers'; });
   if (!def) return;
   updateStatus(t('status_sticker_loading'), 'status_sticker_loading');
-  const image = await loadAsset(def);
+  const image = await loadAsset(def, 'high');
 
   const before = captureSnapshot();
   const aspect = (image.naturalWidth || image.width)
