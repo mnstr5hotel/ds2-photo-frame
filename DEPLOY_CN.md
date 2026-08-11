@@ -1,20 +1,53 @@
-# 免费静态部署与中国大陆访问说明
+# GitHub Pages 发布说明
 
 ## 当前方案
 
-项目通过公开 GitHub 仓库和 GitHub Pages 免费部署，不需要购买域名、配置服务器、设置 Secret 或登录 ChatGPT。默认项目地址为：
+项目当前通过公开 GitHub 仓库和 GitHub Pages 免费部署。
 
-`https://2075570039-star.github.io/ds2-photo-frame/`
+- 仓库：`mnstr5hotel/ds2-photo-frame`
+- 线上地址：`https://mnstr5hotel.github.io/ds2-photo-frame/`
+- 发布分支：`main`
+- 发布产物：`dist-pages/`
 
-推送或合并到 `main` 后，GitHub Actions 会构建、部署并执行线上浏览器回归。部署产物完全静态，用户照片只在浏览器内处理。
+推送到 `main` 后，GitHub Actions 会执行检查、静态构建，并发布到 GitHub Pages。
 
-## 已接受的取舍
+## Workflow 行为
 
-- GitHub Free 要求 Pages 来源仓库公开，源码、贴纸、相框、缩略图和颜色配置均可下载。
-- 不再尝试通过前端混淆、HMAC URL、会话 Cookie 或禁止右键隐藏素材。
-- 不再需要 `DS_ASSET_SECRET`、EdgeOne 临时预览令牌或 Cloudflare Worker。
-- `github.io` 在中国大陆不同地区、运营商和时段可能出现速度慢或无法访问，免费方案无法承诺稳定性。
+`.github/workflows/pages.yml` 只在影响网页和素材的路径变化时触发，单独修改 README 等文档不会再触发部署。
 
-## 将来需要大陆稳定访问时
+当前保留：
 
-若未来需要面向中国大陆的长期稳定入口，通常仍需购买独立域名、完成实名认证和 ICP 备案，并部署到具有大陆节点的合规托管服务。本次 GitHub Pages 方案不解决备案和跨境线路问题。
+- `npm ci`
+- `npm run check`
+- `npm run build`
+- GitHub Pages deploy
+
+当前已取消：
+
+- 线上 smoke job
+- Playwright 线上回归
+
+取消原因：GitHub Pages 刚部署完成时，CDN 与静态资源刷新存在时序差异，容易导致 smoke 阶段误报失败并发送噪音邮件。
+
+## 本地维护命令
+
+```powershell
+npm.cmd run check
+npm.cmd run build
+npm.cmd run start
+```
+
+本地完整回归：
+
+```powershell
+$env:SMOKE_BASE_URL='http://127.0.0.1:4174/'
+$env:SMOKE_EXPECT_PUBLIC_ASSETS='true'
+npm.cmd run smoke
+```
+
+## 免费方案限制
+
+- `github.io` 默认域名无法去掉，除非绑定自有域名。
+- GitHub Pages 免费公开部署意味着素材和源码可被直接访问。
+- 中国大陆访问 `github.io` 的速度和稳定性不可控。
+- 若未来需要更稳定的大陆访问入口，建议购买域名并迁移到具备大陆或边缘节点的托管/CDN 服务。
