@@ -1,8 +1,9 @@
 import path from 'node:path';
-import { chromium } from 'playwright-core';
+import { chromium } from 'playwright';
 
 const root = path.resolve(import.meta.dirname, '..');
 const baseUrl = process.env.SMOKE_BASE_URL || 'http://127.0.0.1:4174';
+const expectPublicAssets = process.env.SMOKE_EXPECT_PUBLIC_ASSETS === 'true';
 const isSitesProduction = new URL(baseUrl).hostname.endsWith('.chatgpt.site');
 const executablePath = process.env.BROWSER_PATH || 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 const browser = await chromium.launch({ executablePath: executablePath, headless: true });
@@ -62,10 +63,14 @@ try {
     throw new Error('导出文件不是 PNG');
   }
 
-  const directAssetUrl = new URL('/assets/library/frames/F37.png', baseUrl);
+  const directAssetUrl = new URL('assets/library/frames/F37.png', baseUrl);
   const directAsset = await page.request.get(directAssetUrl.href);
   const directAssetType = directAsset.headers()['content-type'] || '';
-  if (directAsset.ok() && directAssetType.startsWith('image/')) {
+  const directAssetIsImage = directAsset.ok() && directAssetType.startsWith('image/');
+  if (expectPublicAssets && !directAssetIsImage) {
+    throw new Error('静态素材路径不可用');
+  }
+  if (!expectPublicAssets && directAssetIsImage) {
     throw new Error('公开原图路径没有被隐藏');
   }
   if (errors.length) throw new Error(errors.join('\n'));

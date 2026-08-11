@@ -73,7 +73,7 @@ const state = {
 };
 
 // ===== Asset configuration =====
-const ASSET_CATALOG_URL = '/api/catalog';
+const ASSET_CATALOG_URL = 'assets/catalog.json';
 let ASSET_DEFS = [];
 let STICKER_COLORS = [];
 
