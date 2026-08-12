@@ -404,25 +404,14 @@ function createFallbackAsset(def) {
   return image;
 }
 
-function preloadAssetForUse(def) {
-  if (!def || assetImages[def.id]) return;
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = def.src;
-  link.fetchPriority = 'high';
-  document.head.appendChild(link);
-  setTimeout(function() { link.remove(); }, 15000);
-}
-
 function loadAsset(def, priority) {
   if (assetImages[def.id]) return Promise.resolve(assetImages[def.id]);
-  if (priority === 'high') preloadAssetForUse(def);
   if (assetLoadPromises[def.id]) return assetLoadPromises[def.id];
 
   assetLoadPromises[def.id] = new Promise(function(resolve) {
     const image = new Image();
     image.fetchPriority = priority || 'auto';
+    image.decoding = 'async';
     image.onload = function() {
       assetImages[def.id] = image;
       resolve(image);

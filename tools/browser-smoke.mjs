@@ -63,7 +63,7 @@ try {
     throw new Error('导出文件不是 PNG');
   }
 
-  const directAssetUrl = new URL('assets/library/frames/F37.png', baseUrl);
+  const directAssetUrl = new URL('assets/optimized/frames/F37.webp', baseUrl);
   const directAsset = await page.request.get(directAssetUrl.href);
   const directAssetType = directAsset.headers()['content-type'] || '';
   const directAssetIsImage = directAsset.ok() && directAssetType.startsWith('image/');

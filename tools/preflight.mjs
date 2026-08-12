@@ -57,8 +57,10 @@ manifest.forEach(function(item) {
 
   const relativePath = item.relative_path.replace(/\\/g, '/');
   const originalPath = path.join(root, 'assets', 'library', ...relativePath.split('/'));
+  const optimizedPath = path.join(root, 'assets', 'optimized', ...relativePath.replace(/\.png$/i, '.webp').split('/'));
   const thumbnailPath = path.join(root, 'assets', 'thumbnails', ...relativePath.replace(/\.png$/i, '.webp').split('/'));
   check(fs.existsSync(originalPath), item.id + ' 缺少原图');
+  check(fs.existsSync(optimizedPath), item.id + ' 缺少发布用 WebP 素材');
   check(fs.existsSync(thumbnailPath), item.id + ' 缺少缩略图');
   if (fs.existsSync(originalPath) && item.sha256) {
     check(fileHash(originalPath) === item.sha256, item.id + ' 的 SHA-256 不匹配');
