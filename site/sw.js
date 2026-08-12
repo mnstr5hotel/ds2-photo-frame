@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ds2-photo-frame-v3';
+const CACHE_NAME = 'ds2-photo-simulator-v1';
 const STATIC_EXTENSIONS = /\.(?:css|js|json|svg|png|webp|wasm)$/i;
 const NETWORK_FIRST_EXTENSIONS = /\.(?:css|js|json)$/i;
 

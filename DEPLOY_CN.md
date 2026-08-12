@@ -4,8 +4,8 @@
 
 项目当前通过公开 GitHub 仓库和 GitHub Pages 免费部署。
 
-- 仓库：`mnstr5hotel/ds2-photo-frame`
-- 线上地址：`https://mnstr5hotel.github.io/ds2-photo-frame/`
+- 仓库：`mnstr5hotel/ds2-photo-simulator`
+- 线上地址：`https://mnstr5hotel.github.io/ds2-photo-simulator/`
 - 发布分支：`main`
 - 发布产物：`dist-pages/`
 
