@@ -2,7 +2,7 @@
 
 const LANG = {
   zh: {
-    title: 'DEATH STRANDING 2 PHOTO FRAME',
+    title: 'Photo Simulator',
     lang: 'EN',
     upload: '上传',
     replace: '更换',
@@ -53,7 +53,7 @@ const LANG = {
     disclaimer: '非官方粉丝项目，仅供个人、非商业用途。本项目与 KOJIMA PRODUCTIONS、Sony Interactive Entertainment 或其关联方无隶属、授权或背书关系。《死亡搁浅 2：冥滩之上》相关名称、商标、图像及游戏素材的权利归各自权利人所有；如权利人提出有效要求，将及时调整或移除相关内容。'
   },
   en: {
-    title: 'DEATH STRANDING 2 PHOTO FRAME',
+    title: 'Photo Simulator',
     lang: '中文',
     upload: 'Upload',
     replace: 'Replace',

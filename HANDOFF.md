@@ -6,8 +6,8 @@
 
 项目已经进入可正式使用状态，当前正式方案是公开 GitHub 仓库 + GitHub Pages 静态部署。
 
-- 线上地址：`https://mnstr5hotel.github.io/ds2-photo-frame/`
-- GitHub 仓库：`mnstr5hotel/ds2-photo-frame`
+- 线上地址：`https://mnstr5hotel.github.io/ds2-photo-simulator/`
+- GitHub 仓库：`mnstr5hotel/ds2-photo-simulator`
 - 本地路径：`D:\File D\projects_\vscode new\DS photo web`
 - 当前分支：`main`
 - 部署方式：推送到 `main` 后由 GitHub Actions 构建并发布到 GitHub Pages
