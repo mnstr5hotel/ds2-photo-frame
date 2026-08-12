@@ -30,6 +30,7 @@
 - `assets/asset-index.json` 是素材主索引，包含尺寸、分类、路径、名称和 SHA-256。
 - `assets/library/` 保存公开原图。
 - `assets/optimized/` 保存网页实际加载的透明 WebP 素材；原始 PNG 不直接进入网页请求。
+- `assets/previews/` 保存点击后优先加载的 1280 边长预览 WebP；导出 PNG 时才按当前选择加载 `assets/optimized/` 高清素材。
 - `assets/thumbnails/` 保存公开 WebP 缩略图。
 - `assets/logo-color-palette.json` 保存 24 色贴纸调色板。
 - `site/` 是实际发布的静态网页源码。
@@ -42,9 +43,11 @@
 当前已做一轮 GitHub Pages 静态素材加载优化：
 
 - 点击素材时加载 `assets/optimized/` 中的透明 WebP；65 个网页素材约 7.42 MiB，相比对应原始 PNG 约减少 54.7%。
+- 点击素材时首先加载 `assets/previews/`；65 个预览素材约 2.16 MiB，相比原始 PNG 约减少 86.8%，预览不再等待 2560×1440 高清相框下载。
 - 左侧素材栏前 10 个可见缩略图优先加载，其余缩略图懒加载。
 - 鼠标悬停或键盘聚焦素材时，低优先级预取原图。
 - 点击使用相框或贴纸时，只创建一个高优先级图片请求，并使用异步解码；不再额外插入重复的 `preload` 请求。
+- 导出时仅为当前相框和贴纸加载高清 WebP，避免无关素材参与等待。
 - `site/sw.js` 使用版本化同源静态资源缓存：图片和缩略图缓存优先，JS/CSS/JSON 网络优先。
 
 这能改善重复访问和点击后的等待时间，但不能解决中国大陆直连 `github.io` 的基础网络波动。

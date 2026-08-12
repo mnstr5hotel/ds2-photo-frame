@@ -73,6 +73,12 @@ try {
   if (!expectPublicAssets && directAssetIsImage) {
     throw new Error('公开原图路径没有被隐藏');
   }
+  const previewAssetUrl = new URL('assets/previews/frames/F37.webp', baseUrl);
+  const previewAsset = await page.request.get(previewAssetUrl.href);
+  const previewAssetType = previewAsset.headers()['content-type'] || '';
+  if (expectPublicAssets && (!previewAsset.ok() || !previewAssetType.startsWith('image/'))) {
+    throw new Error('预览素材路径不可用');
+  }
   if (errors.length) throw new Error(errors.join('\n'));
 
   console.log('浏览器回归通过：24 个贴纸、41 个相框、24 色、F37、上传、换色及 PNG 导出均正常。');

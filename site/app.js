@@ -314,6 +314,7 @@ function createAssetDef(item) {
     name: item.names && item.names.en || fallbackName,
     names: item.names || { en: fallbackName, 'zh-Hans': fallbackName },
     src: item.src,
+    preview: item.preview || item.src,
     thumbnail: item.thumbnail,
     category: item.category === 'frame' ? 'frames' : 'stickers',
     defaultWidth: item.category === 'sticker' ? getDefaultStickerWidth(item) : undefined,
@@ -404,34 +405,40 @@ function createFallbackAsset(def) {
   return image;
 }
 
-function loadAsset(def, priority) {
-  if (assetImages[def.id]) return Promise.resolve(assetImages[def.id]);
-  if (assetLoadPromises[def.id]) return assetLoadPromises[def.id];
+function loadAsset(def, priority, fullResolution) {
+  const key = fullResolution ? def.id + ':full' : def.id;
+  if (assetImages[key]) return Promise.resolve(assetImages[key]);
+  if (assetLoadPromises[key]) return assetLoadPromises[key];
 
-  assetLoadPromises[def.id] = new Promise(function(resolve) {
+  assetLoadPromises[key] = new Promise(function(resolve) {
     const image = new Image();
     image.fetchPriority = priority || 'auto';
     image.decoding = 'async';
+    const finish = function(result) {
+      const decoded = typeof result.decode === 'function' ? result.decode() : Promise.resolve();
+      Promise.resolve(decoded).catch(function() {}).then(function() {
+        assetImages[key] = result;
+        resolve(result);
+      });
+    };
     image.onload = function() {
-      assetImages[def.id] = image;
-      resolve(image);
+      finish(image);
     };
     image.onerror = function() {
       const fallback = createFallbackAsset(def);
       fallback.onload = function() {
-        assetImages[def.id] = fallback;
-        resolve(fallback);
+        finish(fallback);
       };
     };
-    image.src = def.src;
+    image.src = fullResolution ? def.src : def.preview;
   });
 
-  return assetLoadPromises[def.id];
+  return assetLoadPromises[key];
 }
 
 function warmAsset(def) {
   if (!def || assetImages[def.id] || assetLoadPromises[def.id]) return;
-  loadAsset(def, 'low').catch(function(error) {
+  loadAsset(def, 'low', false).catch(function(error) {
     console.warn('Asset warm-up failed:', def.id, error);
   });
 }
@@ -493,11 +500,12 @@ function drawPhoto(targetCtx, photo) {
 }
 
 function getTintedStickerImage(sticker) {
-  const image = assetImages[sticker.defId];
+  const fullKey = sticker.defId + ':full';
+  const image = assetImages[fullKey] || assetImages[sticker.defId];
   if (!image) return;
   const colorHex = sticker.colorHex || '#FFFFFF';
   if (colorHex === '#FFFFFF') return image;
-  const cacheKey = sticker.defId + '|' + colorHex;
+  const cacheKey = sticker.defId + '|' + colorHex + (assetImages[fullKey] ? '|full' : '|preview');
   if (tintedStickerImages.has(cacheKey)) return tintedStickerImages.get(cacheKey);
 
   const tintCanvas = document.createElement('canvas');
@@ -536,7 +544,7 @@ function drawSticker(targetCtx, sticker) {
 
 function drawFrame(targetCtx) {
   if (!state.frameId) return;
-  const image = assetImages[state.frameId];
+  const image = assetImages[state.frameId + ':full'] || assetImages[state.frameId];
   if (!image) return;
   targetCtx.save();
   targetCtx.imageSmoothingEnabled = true;
@@ -790,7 +798,7 @@ async function setFrame(frameId) {
     const def = ASSET_DEFS.find(function(item) { return item.id === frameId && item.category === 'frames'; });
     if (!def) return;
     updateStatus(t('status_sticker_loading'), 'status_sticker_loading');
-    await loadAsset(def, 'high');
+     await loadAsset(def, 'high', false);
   }
   const before = captureSnapshot();
   const hadFrame = !!state.frameId;
@@ -816,7 +824,7 @@ async function addSticker(defId) {
   const def = ASSET_DEFS.find(function(item) { return item.id === defId && item.category === 'stickers'; });
   if (!def) return;
   updateStatus(t('status_sticker_loading'), 'status_sticker_loading');
-  const image = await loadAsset(def, 'high');
+   const image = await loadAsset(def, 'high', false);
 
   const before = captureSnapshot();
   const aspect = (image.naturalWidth || image.width)
@@ -1718,10 +1726,20 @@ function scheduleSnapGuideClear() {
 }
 
 // ===== Export =====
-function exportComposition() {
+async function exportComposition() {
   if (!state.photo || state.photoEditing) return;
   flushWheelHistory();
   updateStatus(t('status_downloading'), 'status_downloading');
+  const selectedDefs = [];
+  if (state.frameId) {
+    const frameDef = ASSET_DEFS.find(function(def) { return def.id === state.frameId; });
+    if (frameDef) selectedDefs.push(frameDef);
+  }
+  state.stickers.forEach(function(sticker) {
+    const stickerDef = ASSET_DEFS.find(function(def) { return def.id === sticker.defId; });
+    if (stickerDef && !selectedDefs.includes(stickerDef)) selectedDefs.push(stickerDef);
+  });
+  await Promise.all(selectedDefs.map(function(def) { return loadAsset(def, 'high', true); }));
   const exportCanvas = document.createElement('canvas');
   exportCanvas.width = COMPOSITION_WIDTH;
   exportCanvas.height = COMPOSITION_HEIGHT;

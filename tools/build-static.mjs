@@ -19,6 +19,7 @@ const items = assetIndex.map(function(item) {
     height: item.height,
     names: item.names,
     src: 'assets/optimized/' + relativePath.replace(/\.png$/i, '.webp'),
+    preview: 'assets/previews/' + relativePath.replace(/\.png$/i, '.webp'),
     thumbnail: 'assets/thumbnails/' + relativePath.replace(/\.png$/i, '.webp'),
   };
 });
@@ -45,7 +46,7 @@ await rm(outputRoot, { recursive: true, force: true });
 await cp(path.join(projectRoot, 'site'), outputRoot, { recursive: true });
 await rm(path.join(outputRoot, 'build.json'), { force: true });
 await mkdir(path.join(outputRoot, 'assets'), { recursive: true });
-for (const directory of ['backgrounds', 'optimized', 'thumbnails']) {
+for (const directory of ['backgrounds', 'optimized', 'previews', 'thumbnails']) {
   await cp(
     path.join(projectRoot, 'assets', directory),
     path.join(outputRoot, 'assets', directory),
