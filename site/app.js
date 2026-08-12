@@ -19,6 +19,7 @@ const snapReadout = document.getElementById('snapReadout');
 const canvasReadout = document.getElementById('canvasReadout');
 const qualityIndicator = document.getElementById('qualityIndicator');
 const historyNotice = document.getElementById('historyNotice');
+const canvasControlRow = document.querySelector('.canvas-control-row');
 const btnScaleDown = document.getElementById('btnScaleDown');
 const btnScaleUp = document.getElementById('btnScaleUp');
 const btnRotateLeft = document.getElementById('btnRotateLeft');
@@ -55,7 +56,9 @@ const HISTORY_LIMIT = 30;
 const SELECTION_HANDLE_SIZE = 34;
 const SELECTION_HANDLE_HIT_SIZE = 64;
 const TINTED_STICKER_CACHE_LIMIT = 16;
-const EAGER_THUMBNAIL_COUNT = 10;
+const DESKTOP_EAGER_THUMBNAIL_COUNT = 10;
+const MOBILE_EAGER_THUMBNAIL_COUNT = 4;
+const ASSET_WARM_DELAY = 180;
 const CATEGORIES = ['stickers', 'frames'];
 let ambientMarks = [];
 
@@ -85,11 +88,14 @@ let STICKER_COLORS = [];
 
 const assetImages = Object.create(null);
 const assetLoadPromises = Object.create(null);
+const assetWarmTimers = new Map();
 const tintedStickerImages = new Map();
 const photoAssets = new Map();
 let stickerIdCounter = 0;
 let photoAssetCounter = 0;
 let serviceWorkerRegistrationStarted = false;
+let visibleToolbarMode = null;
+let mobileToolbarRevealFrame = null;
 
 // ===== History =====
 const history = {
@@ -415,39 +421,130 @@ function createFallbackAsset(def) {
 function loadAsset(def, priority, fullResolution) {
   const key = fullResolution ? def.id + ':full' : def.id;
   if (assetImages[key]) return Promise.resolve(assetImages[key]);
-  if (assetLoadPromises[key]) return assetLoadPromises[key];
+  if (assetLoadPromises[key]) {
+    const pending = assetLoadPromises[key];
+    if (priority === 'high' && pending.priority !== 'high') {
+      pending.cancel();
+    } else {
+      return pending.promise;
+    }
+  }
 
-  assetLoadPromises[key] = new Promise(function(resolve) {
-    const image = new Image();
-    image.fetchPriority = priority || 'auto';
-    image.decoding = 'async';
-    const finish = function(result) {
-      const decoded = typeof result.decode === 'function' ? result.decode() : Promise.resolve();
-      Promise.resolve(decoded).catch(function() {}).then(function() {
-        assetImages[key] = result;
-        resolve(result);
+  const source = fullResolution ? def.src : def.preview;
+  const controller = new AbortController();
+  const pending = {
+    controller: controller,
+    priority: priority || 'auto',
+    promise: null,
+    resolve: null,
+    cancel: null,
+    image: null,
+    objectUrl: null,
+    settled: false,
+  };
+  pending.promise = new Promise(function(resolve) {
+    pending.resolve = resolve;
+  });
+  const cleanup = function() {
+    if (pending.objectUrl) URL.revokeObjectURL(pending.objectUrl);
+    pending.objectUrl = null;
+    if (assetLoadPromises[key] === pending) delete assetLoadPromises[key];
+  };
+  const settle = function(result) {
+    if (pending.settled) return;
+    pending.settled = true;
+    cleanup();
+    pending.resolve(result);
+  };
+  pending.cancel = function() {
+    if (pending.settled) return;
+    controller.abort();
+    if (pending.image) {
+      pending.image.onload = null;
+      pending.image.onerror = null;
+      pending.image.removeAttribute('src');
+    }
+    settle(null);
+  };
+  assetLoadPromises[key] = pending;
+
+  (async function() {
+    try {
+      const response = await fetch(source, {
+        cache: 'default',
+        credentials: 'same-origin',
+        priority: pending.priority,
+        signal: controller.signal,
       });
-    };
-    image.onload = function() {
-      finish(image);
-    };
-    image.onerror = function() {
+      if (!response.ok) throw new Error('Asset HTTP ' + response.status);
+      const blob = await response.blob();
+      if (pending.settled) return;
+
+      const image = new Image();
+      pending.image = image;
+      pending.objectUrl = URL.createObjectURL(blob);
+      image.decoding = 'async';
+      image.onload = async function() {
+        if (typeof image.decode === 'function') await image.decode().catch(function() {});
+        if (pending.settled) return;
+        assetImages[key] = image;
+        settle(image);
+      };
+      image.onerror = function() {
+        if (pending.settled) return;
+        const fallback = createFallbackAsset(def);
+        fallback.onload = function() {
+          if (pending.settled) return;
+          assetImages[key] = fallback;
+          settle(fallback);
+        };
+      };
+      image.src = pending.objectUrl;
+    } catch (error) {
+      if (error.name === 'AbortError' || pending.settled) return;
       const fallback = createFallbackAsset(def);
       fallback.onload = function() {
-        finish(fallback);
+        if (pending.settled) return;
+        assetImages[key] = fallback;
+        settle(fallback);
       };
-    };
-    image.src = fullResolution ? def.src : def.preview;
-  });
+    }
+  })();
 
-  return assetLoadPromises[key];
+  return pending.promise;
+}
+
+function connectionPrefersLessData() {
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  return !!connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || ''));
+}
+
+function shouldWarmAssets() {
+  return !connectionPrefersLessData() && !window.matchMedia('(pointer:coarse)').matches;
+}
+
+function eagerThumbnailCount() {
+  if (connectionPrefersLessData()) return MOBILE_EAGER_THUMBNAIL_COUNT;
+  return window.matchMedia('(max-width:760px)').matches
+    ? MOBILE_EAGER_THUMBNAIL_COUNT
+    : DESKTOP_EAGER_THUMBNAIL_COUNT;
+}
+
+function cancelAssetWarm(def) {
+  if (!def || !assetWarmTimers.has(def.id)) return;
+  clearTimeout(assetWarmTimers.get(def.id));
+  assetWarmTimers.delete(def.id);
 }
 
 function warmAsset(def) {
-  if (!def || assetImages[def.id] || assetLoadPromises[def.id]) return;
-  loadAsset(def, 'low', false).catch(function(error) {
-    console.warn('Asset warm-up failed:', def.id, error);
-  });
+  if (!def || !shouldWarmAssets() || assetImages[def.id] || assetLoadPromises[def.id] || assetWarmTimers.has(def.id)) return;
+  const timer = setTimeout(function() {
+    assetWarmTimers.delete(def.id);
+    loadAsset(def, 'low', false).catch(function(error) {
+      console.warn('Asset warm-up failed:', def.id, error);
+    });
+  }, ASSET_WARM_DELAY);
+  assetWarmTimers.set(def.id, timer);
 }
 
 function registerAssetCacheWorker() {
@@ -735,6 +832,7 @@ function rebuildCategoryTabs() {
 function buildAssetPanel() {
   stickerGrid.replaceChildren();
   stickerGrid.classList.toggle('is-disabled', state.photoEditing);
+  const eagerCount = eagerThumbnailCount();
 
   if (state.activeCategory === 'frames') {
     stickerGrid.appendChild(createNoFrameButton());
@@ -756,9 +854,9 @@ function buildAssetPanel() {
 
     const image = document.createElement('img');
     image.alt = displayName;
-    image.loading = index < EAGER_THUMBNAIL_COUNT ? 'eager' : 'lazy';
+    image.loading = index < eagerCount ? 'eager' : 'lazy';
     image.decoding = 'async';
-    image.fetchPriority = index < EAGER_THUMBNAIL_COUNT ? 'high' : 'low';
+    image.fetchPriority = index < eagerCount ? 'high' : 'low';
     image.src = def.thumbnail;
     image.onerror = function() {
       image.onerror = null;
@@ -774,12 +872,15 @@ function buildAssetPanel() {
 
     button.addEventListener('click', async function() {
       if (def.category === 'frames' && state.frameId === def.id) return;
+      cancelAssetWarm(def);
       button.disabled = true;
       if (def.category === 'frames') await setFrame(def.id);
       else await addSticker(def.id);
     });
     button.addEventListener('pointerenter', function() { warmAsset(def); });
+    button.addEventListener('pointerleave', function() { cancelAssetWarm(def); });
     button.addEventListener('focus', function() { warmAsset(def); });
+    button.addEventListener('blur', function() { cancelAssetWarm(def); });
     stickerGrid.appendChild(button);
   });
 }
@@ -1281,13 +1382,52 @@ function updateQualityIndicator() {
 }
 
 // ===== Toolbar =====
+function revealMobileToolbar() {
+  if (!window.matchMedia('(max-width:760px)').matches) return;
+  const viewport = window.visualViewport;
+  const viewportTop = viewport ? viewport.offsetTop : 0;
+  const viewportBottom = viewportTop + (viewport ? viewport.height : window.innerHeight);
+  const rect = canvasControlRow.getBoundingClientRect();
+  const margin = 12 + (viewport ? Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop) : 0);
+  let delta = 0;
+  if (rect.bottom + margin > viewportBottom) {
+    delta = rect.bottom + margin - viewportBottom;
+  } else if (rect.top - margin < viewportTop) {
+    delta = rect.top - margin - viewportTop;
+  }
+  if (Math.abs(delta) >= 1) window.scrollBy({ top: delta, left: 0, behavior: 'auto' });
+}
+
+function scheduleMobileToolbarReveal() {
+  if (!visibleToolbarMode || mobileToolbarRevealFrame !== null) return;
+  mobileToolbarRevealFrame = requestAnimationFrame(function() {
+    mobileToolbarRevealFrame = null;
+    revealMobileToolbar();
+  });
+}
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', scheduleMobileToolbarReveal);
+}
+window.addEventListener('orientationchange', scheduleMobileToolbarReveal);
+
 function updateEditToolbar() {
   const selected = getSelectedSticker();
   const showPhoto = state.photoEditing && !!state.photo;
-  editToolbar.hidden = !showPhoto && !selected;
+  const toolbarMode = showPhoto ? 'photo' : (selected ? 'sticker' : null);
+  const shouldReveal = editToolbar.hidden || visibleToolbarMode !== toolbarMode;
+  editToolbar.hidden = !toolbarMode;
   if (editToolbar.hidden) {
+    visibleToolbarMode = null;
     setStickerColorMenuOpen(false);
     return;
+  }
+  visibleToolbarMode = toolbarMode;
+  if (shouldReveal && window.matchMedia('(max-width:760px)').matches) {
+    requestAnimationFrame(function() {
+      requestAnimationFrame(scheduleMobileToolbarReveal);
+    });
+    setTimeout(scheduleMobileToolbarReveal, 180);
   }
 
   document.querySelectorAll('.tool-sticker').forEach(function(element) {

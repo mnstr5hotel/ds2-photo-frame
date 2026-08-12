@@ -990,7 +990,18 @@ body{
 }
 
 @media (max-width:760px){
-  html,body{overflow:auto}
+  html{
+    height:auto;
+    min-height:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+  body{
+    height:auto;
+    min-height:100vh;
+    min-height:100dvh;
+    overflow:visible;
+  }
   .topbar{
     min-height:102px;
     flex-direction:column;
@@ -1003,7 +1014,7 @@ body{
   .title-cn{max-width:calc(100vw - 70px);font-size:10px}
   .topbar-actions{width:100%;justify-content:flex-end}
   .btn{min-width:68px;min-height:29px;padding:6px 8px;font-size:10px}
-  .main{flex-direction:column;overflow:auto}
+  .main{flex:none;flex-direction:column;overflow:visible}
   .sticker-panel{
     --ambient-opacity:0.06;
     width:100%;
@@ -1027,8 +1038,8 @@ body{
     overflow-y:hidden;
   }
   .sticker-thumb{width:135px;min-width:135px;height:104px}
-  .canvas-container{min-height:460px}
-  .canvas-stage{min-height:379px}
+  .canvas-container{flex:none;min-height:0;overflow:visible}
+  .canvas-stage{flex:none;min-height:0;aspect-ratio:16/9}
   .canvas-stage canvas{
     width:94%;
     width:min(94cqw,142.2222cqh);
@@ -1036,16 +1047,42 @@ body{
   .canvas-corner-tl,.canvas-corner-tr,.canvas-corner-bl,.canvas-corner-br{display:none}
   .canvas-meta{left:10px}
   .canvas-mode{right:10px}
-  .canvas-control-row{padding:6px 8px 8px;align-items:stretch}
-  .edit-toolbar{width:min(100%,520px);flex-wrap:wrap;justify-content:center;gap:3px;padding:5px}
-  .selection-data{width:auto;flex:1 0 100%;padding:1px 6px 4px;align-items:center;text-align:center}
-  .edit-toolbar[data-mode="sticker"] .selection-data,.edit-toolbar[data-mode="photo"] .selection-data{width:auto;flex-basis:100%}
+  .canvas-control-row{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    justify-items:center;
+    gap:7px;
+    padding:8px 8px calc(10px + env(safe-area-inset-bottom));
+    overflow:visible;
+    scroll-margin-block:12px;
+  }
+  .edit-toolbar{
+    grid-row:1;
+    width:min(100%,520px);
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    align-items:stretch;
+    gap:4px;
+    padding:6px;
+  }
+  .selection-data{
+    width:auto;
+    grid-column:1/-1;
+    padding:2px 6px 5px;
+    align-items:center;
+    text-align:center;
+  }
+  .edit-toolbar[data-mode="sticker"] .selection-data,.edit-toolbar[data-mode="photo"] .selection-data{width:auto}
   .edit-toolbar::before{display:none}
-  .sticker-color-control{width:132px}
-  .photo-brightness-control{min-width:132px;flex:1 1 150px}
+  .edit-toolbar .icon-btn{width:100%;min-width:0}
+  .sticker-color-control{width:auto;grid-column:span 5}
+  .photo-brightness-control{min-width:0;grid-column:1/-1}
   .photo-brightness-control input{width:auto;flex:1;min-width:48px}
   .sticker-color-menu{left:0;right:0;width:auto;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr));}
-  .icon-btn{width:32px;height:32px}
+  .icon-btn{width:40px;height:40px}
+  .sticker-color-control,.sticker-color-trigger,.photo-brightness-control{height:40px}
+  .history-controls{grid-row:2;justify-self:center}
+  .quality-indicator{grid-row:2;justify-self:end;align-self:center}
   .bottombar{
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:8px;
@@ -1054,7 +1091,7 @@ body{
   .terminal-id{display:none}
   .mode-status{min-width:0}
   .legalbar{
-    padding:6px 10px;
+    padding:6px 10px calc(6px + env(safe-area-inset-bottom));
     font-size:8px;
     line-height:1.4;
   }
@@ -1065,16 +1102,16 @@ body{
   .title-stack [data-i18n="title"]{max-width:100%;font-size:18px}
   .title-cn{max-width:100%;font-size:9px;letter-spacing:0.04em}
   .edit-toolbar{width:100%;max-width:100%;}
-  .canvas-control-row{overflow-x:hidden}
+  .canvas-control-row{overflow:visible}
   .selection-data{width:auto}
-  .icon-btn{width:31px;height:31px}
-  .sticker-color-control{width:calc(50vw - 35px);max-width:150px}
+  .icon-btn{width:40px;height:40px}
+  .sticker-color-control{width:auto;max-width:none}
   .photo-brightness-control{min-width:0;width:calc(100vw - 24px);max-width:none;justify-content:center}
   .sticker-color-menu{left:0;right:0;width:auto;max-height:min(300px,48vh);}
   .selected-name{font-size:10px}
   .snap-readout{font-size:8px}
-  .canvas-control-row{gap:4px;padding:5px 5px 7px}
-  .history-btn{width:22px;height:24px}
+  .canvas-control-row{gap:6px;padding:7px 5px calc(9px + env(safe-area-inset-bottom))}
+  .history-btn{width:36px;height:36px}
   .quality-indicator{display:none}
   .bottombar{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
