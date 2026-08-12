@@ -31,6 +31,8 @@ const stickerColorName = document.getElementById('stickerColorName');
 const stickerColorMenu = document.getElementById('stickerColorMenu');
 const btnDeleteSticker = document.getElementById('btnDeleteSticker');
 const btnResetPhoto = document.getElementById('btnResetPhoto');
+const photoBrightness = document.getElementById('photoBrightness');
+const photoBrightnessValue = document.getElementById('photoBrightnessValue');
 
 // ===== Fixed composition model =====
 const COMPOSITION_WIDTH = 2560;
@@ -45,6 +47,9 @@ const ROTATION_SNAP_STEP = Math.PI / 2;
 const ROTATION_SNAP_DISTANCE = 6 * Math.PI / 180;
 const PHOTO_MIN_SCALE_FACTOR = 0.1;
 const PHOTO_MAX_SCALE_FACTOR = 4;
+const PHOTO_MIN_BRIGHTNESS = 50;
+const PHOTO_MAX_BRIGHTNESS = 150;
+const PHOTO_DEFAULT_BRIGHTNESS = 100;
 const MIN_VISIBLE_PHOTO = 80;
 const HISTORY_LIMIT = 30;
 const SELECTION_HANDLE_SIZE = 34;
@@ -270,6 +275,8 @@ function updateToolbarLabels() {
   stickerColorTrigger.setAttribute('aria-label', t('sticker_color'));
   btnDeleteSticker.title = currentLang === 'zh' ? '删除贴纸' : 'Delete sticker';
   btnResetPhoto.title = currentLang === 'zh' ? '重置照片构图' : 'Reset photo';
+  photoBrightness.title = t('brightness');
+  photoBrightness.setAttribute('aria-label', t('brightness'));
   btnUndo.title = t('undo');
   btnRedo.title = t('redo');
   editToolbar.dataset.mode = isPhoto ? 'photo' : 'sticker';
@@ -495,7 +502,9 @@ function drawPhoto(targetCtx, photo) {
   targetCtx.rotate(photo.rotation);
   targetCtx.imageSmoothingEnabled = true;
   targetCtx.imageSmoothingQuality = 'high';
+  targetCtx.filter = 'brightness(' + (photo.brightness || PHOTO_DEFAULT_BRIGHTNESS) + '%)';
   targetCtx.drawImage(asset.image, -width / 2, -height / 2, width, height);
+  targetCtx.filter = 'none';
   targetCtx.restore();
 }
 
@@ -1059,6 +1068,7 @@ function createDefaultPhoto(assetId) {
     scale: baseScale,
     baseScale: baseScale,
     rotation: 0,
+    brightness: PHOTO_DEFAULT_BRIGHTNESS,
   };
 }
 
@@ -1224,6 +1234,23 @@ function rotatePhoto(delta) {
   draw();
 }
 
+let brightnessHistory = null;
+function updatePhotoBrightness(value) {
+  if (!state.photo || !state.photoEditing) return;
+  const next = Math.max(PHOTO_MIN_BRIGHTNESS, Math.min(PHOTO_MAX_BRIGHTNESS, Number(value) || PHOTO_DEFAULT_BRIGHTNESS));
+  if (next === (state.photo.brightness || PHOTO_DEFAULT_BRIGHTNESS)) return;
+  if (!brightnessHistory) brightnessHistory = captureSnapshot();
+  state.photo.brightness = next;
+  photoBrightnessValue.textContent = next + '%';
+  draw();
+}
+
+function commitPhotoBrightness() {
+  if (!brightnessHistory) return;
+  commitHistory(brightnessHistory, 'action_brightness_photo');
+  brightnessHistory = null;
+}
+
 function togglePhotoEditing() {
   if (!state.photo) return;
   flushWheelHistory();
@@ -1280,6 +1307,8 @@ function updateEditToolbar() {
       ' · Z ' + zoom + '%';
     btnScaleDown.disabled = state.photo.scale <= state.photo.baseScale * PHOTO_MIN_SCALE_FACTOR;
     btnScaleUp.disabled = state.photo.scale >= state.photo.baseScale * PHOTO_MAX_SCALE_FACTOR;
+    photoBrightness.value = String(state.photo.brightness || PHOTO_DEFAULT_BRIGHTNESS);
+    photoBrightnessValue.textContent = photoBrightness.value + '%';
   } else if (selected) {
     const selectedDef = ASSET_DEFS.find(function(def) { return def.id === selected.defId; });
     selectedName.textContent = selectedDef ? getAssetDefDisplayName(selectedDef) : selected.name;
@@ -1744,6 +1773,8 @@ async function exportComposition() {
   exportCanvas.width = COMPOSITION_WIDTH;
   exportCanvas.height = COMPOSITION_HEIGHT;
   const exportCtx = exportCanvas.getContext('2d');
+  exportCtx.imageSmoothingEnabled = true;
+  exportCtx.imageSmoothingQuality = 'high';
   renderComposition(exportCtx, false);
   exportCanvas.toBlob(function(blob) {
     if (!blob) {
@@ -1816,6 +1847,9 @@ stickerColorMenu.addEventListener('keydown', function(event) {
   options[nextIndex].focus();
 });
 btnResetPhoto.addEventListener('click', resetPhoto);
+photoBrightness.addEventListener('input', function(event) { updatePhotoBrightness(event.target.value); });
+photoBrightness.addEventListener('change', commitPhotoBrightness);
+photoBrightness.addEventListener('blur', commitPhotoBrightness);
 
 document.addEventListener('pointerdown', function(event) {
   if (!stickerColorMenu.hidden && !stickerColorControl.contains(event.target)) {

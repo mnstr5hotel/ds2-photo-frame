@@ -22,7 +22,7 @@
       <span class="title-stack">
         <span class="title-kicker">Social Strand System · Photo Mode</span>
         <span data-i18n="title">DEATH STRANDING 2 PHOTO FRAME</span>
-        <span class="title-cn">死亡搁浅拍照模式</span>
+        <span class="title-cn">死亡搁浅2照片模拟器</span>
       </span>
     </div>
     <nav class="topbar-actions">
@@ -88,8 +88,13 @@
             <div class="sticker-color-menu" id="stickerColorMenu" role="listbox" hidden></div>
           </div>
           <button type="button" class="icon-btn danger tool-sticker" id="btnDeleteSticker" title="Delete">×</button>
-          <button type="button" class="icon-btn tool-photo" id="btnResetPhoto" title="Reset photo">⟲</button>
-        </div>
+           <button type="button" class="icon-btn tool-photo" id="btnResetPhoto" title="Reset photo">⟲</button>
+           <label class="photo-brightness-control tool-photo" for="photoBrightness">
+             <span class="photo-brightness-label" data-i18n="brightness">亮度</span>
+             <input id="photoBrightness" type="range" min="50" max="150" step="1" value="100" />
+             <output id="photoBrightnessValue">100%</output>
+           </label>
+         </div>
         <div class="history-controls">
           <button type="button" class="history-btn" id="btnUndo" title="Undo" disabled>↶</button>
           <button type="button" class="history-btn" id="btnRedo" title="Redo" disabled>↷</button>

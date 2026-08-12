@@ -833,6 +833,14 @@ body{
   text-overflow:ellipsis;
   white-space:nowrap;
 }
+.photo-brightness-control{
+  min-width:150px;height:32px;display:flex;align-items:center;gap:6px;padding:0 7px;
+  color:var(--ice);background:rgba(1,9,15,0.84);border:1px solid rgba(86,168,216,0.4);
+  font:9px/1 "Consolas","Segoe UI",sans-serif;
+}
+.photo-brightness-label{flex:none;color:var(--muted)}
+.photo-brightness-control input{width:76px;accent-color:var(--cyan);cursor:pointer}
+.photo-brightness-control output{width:31px;flex:none;color:var(--ice);text-align:right;font-variant-numeric:tabular-nums}
 @keyframes color-menu-enter{
   from{opacity:0;transform:translateY(5px) scale(0.98)}
   to{opacity:1;transform:translateY(0) scale(1)}
@@ -1028,13 +1036,16 @@ body{
   .canvas-corner-tl,.canvas-corner-tr,.canvas-corner-bl,.canvas-corner-br{display:none}
   .canvas-meta{left:10px}
   .canvas-mode{right:10px}
-  .selection-data{width:120px}
-  .edit-toolbar[data-mode="sticker"]{flex-wrap:wrap;justify-content:center}
-  .edit-toolbar[data-mode="sticker"] .selection-data{width:auto;flex:1 0 100%}
-  .sticker-color-control{width:112px}
-  .sticker-color-menu{right:-5px}
-  .edit-toolbar[data-mode="photo"] .selection-data{width:150px}
-  .icon-btn{width:29px;height:29px}
+  .canvas-control-row{padding:6px 8px 8px;align-items:stretch}
+  .edit-toolbar{width:min(100%,520px);flex-wrap:wrap;justify-content:center;gap:3px;padding:5px}
+  .selection-data{width:auto;flex:1 0 100%;padding:1px 6px 4px;align-items:center;text-align:center}
+  .edit-toolbar[data-mode="sticker"] .selection-data,.edit-toolbar[data-mode="photo"] .selection-data{width:auto;flex-basis:100%}
+  .edit-toolbar::before{display:none}
+  .sticker-color-control{width:132px}
+  .photo-brightness-control{min-width:132px;flex:1 1 150px}
+  .photo-brightness-control input{width:auto;flex:1;min-width:48px}
+  .sticker-color-menu{left:0;right:0;width:auto;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr));}
+  .icon-btn{width:32px;height:32px}
   .bottombar{
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:8px;
@@ -1053,13 +1064,16 @@ body{
   .logo-diamond,.title-kicker{display:none}
   .title-stack [data-i18n="title"]{max-width:100%;font-size:18px}
   .title-cn{max-width:100%;font-size:9px;letter-spacing:0.04em}
-  .selection-data{width:91px}
-  .icon-btn{width:27px}
-  .sticker-color-control{width:100px}
-  .edit-toolbar[data-mode="photo"] .selection-data{width:118px}
+  .edit-toolbar{width:100%;max-width:100%;}
+  .canvas-control-row{overflow-x:hidden}
+  .selection-data{width:auto}
+  .icon-btn{width:31px;height:31px}
+  .sticker-color-control{width:calc(50vw - 35px);max-width:150px}
+  .photo-brightness-control{min-width:0;width:calc(100vw - 24px);max-width:none;justify-content:center}
+  .sticker-color-menu{left:0;right:0;width:auto;max-height:min(300px,48vh);}
   .selected-name{font-size:10px}
   .snap-readout{font-size:8px}
-  .canvas-control-row{gap:4px;padding-left:4px;padding-right:4px}
+  .canvas-control-row{gap:4px;padding:5px 5px 7px}
   .history-btn{width:22px;height:24px}
   .quality-indicator{display:none}
   .bottombar{grid-template-columns:repeat(3,minmax(0,1fr))}
