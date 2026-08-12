@@ -1,4 +1,4 @@
-# Photo Simulator
+# DEATH STRANDING 2 PHOTO SIMULATOR
 
 An unofficial fan-made photo composition tool inspired by the photo mode visual style of *DEATH STRANDING 2: ON THE BEACH*.
 
@@ -8,7 +8,7 @@ https://mnstr5hotel.github.io/ds2-photo-simulator/
 
 ## About
 
-Photo Simulator lets you upload a local image, apply game-style frames and stickers, adjust the composition, recolor stickers, and export the final result as a PNG image.
+DEATH STRANDING 2 PHOTO SIMULATOR lets you upload a local image, apply game-style frames and stickers, adjust the composition, recolor stickers, and export the final result as a PNG image.
 
 The tool is designed as a simple browser-based editor. Your selected photo is processed locally in the browser and is not uploaded by this project.
 
@@ -31,7 +31,7 @@ Names, trademarks, images, and game-related assets belong to their respective ri
 
 ---
 
-# Photo Simulator 中文版
+# DEATH STRANDING 2 PHOTO SIMULATOR 中文版
 
 一个受 *DEATH STRANDING 2: ON THE BEACH* 拍照模式视觉风格启发的非官方粉丝照片合成工具。
 
@@ -41,7 +41,7 @@ https://mnstr5hotel.github.io/ds2-photo-simulator/
 
 ## 项目简介
 
-Photo Simulator 可以让你在浏览器中上传本地图片，添加游戏风格的相框和贴纸，调整构图，为贴纸换色，并将最终画面导出为 PNG 图片。
+DEATH STRANDING 2 PHOTO SIMULATOR 可以让你在浏览器中上传本地图片，添加游戏风格的相框和贴纸，调整构图，为贴纸换色，并将最终画面导出为 PNG 图片。
 
 这个工具是一个简单的浏览器端编辑器。你选择的照片会在本地浏览器中处理，本项目不会上传你的照片。
 
