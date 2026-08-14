@@ -31,7 +31,7 @@ Names, trademarks, images, and game-related assets belong to their respective ri
 
 ---
 
-# DEATH STRANDING 2 PHOTO SIMULATOR 中文版
+# DEATH STRANDING 2 PHOTO SIMULATOR 中文
 
 一个受 *DEATH STRANDING 2: ON THE BEACH* 拍照模式视觉风格启发的非官方粉丝照片合成工具。
 
