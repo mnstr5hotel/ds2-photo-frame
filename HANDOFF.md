@@ -9,7 +9,7 @@
 - 固定中文副标题：`死亡搁浅2照片模拟器`
 - GitHub 仓库：`mnstr5hotel/ds2-photo-simulator`
 - 正式网站：`https://mnstr5hotel.github.io/ds2-photo-simulator/`
-- 本地目录：`D:\File D\projects_\vscode new\DS photo web`
+- 本地目录：`D:\File D\projects_\ds2-photo-simulator`
 - 正式分支：`main`
 - 托管方式：公开 GitHub 仓库 + GitHub Actions + GitHub Pages
 
@@ -162,4 +162,4 @@ npm.cmd run smoke
 3. 运行 check、build、local smoke。
 4. 打开正式网站，确认标题为 `DEATH STRANDING 2 PHOTO SIMULATOR`，中文副标题为 `死亡搁浅2照片模拟器`。
 5. 随机验证黑色相框、贴纸换色、照片亮度、竖屏工具栏和 2560 × 1440 PNG 导出。
-6. 改素材前先核对原始素材交接目录：`D:\File D\projects_\DS2网页素材交接-2026-08-10`。
+6. 改素材前先核对原始素材交接目录：`D:\File D\projects_\ds2-photo-simulator\workspace-assets\handoff`。
